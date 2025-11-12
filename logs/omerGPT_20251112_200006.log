@@ -1,0 +1,786 @@
+2025-11-12 20:00:06,634 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-12 20:00:06,634 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-12 20:00:06,635 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-12 20:00:06,656 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-12 20:00:06,659 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-12 20:00:06,663 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-12 20:00:06,664 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-12 20:00:06,665 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-12 20:00:06,665 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-12 20:00:06,666 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 20:00:06,666 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-12 20:00:06,667 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 20:00:06,667 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 20:00:06,667 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-12 20:00:06,668 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-12T18:00:06.668720", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-12 20:00:06,668 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-12 20:00:06,668 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-12 20:00:06,677 [INFO] omerGPT.sentiment.reddit: reddit_posts table ready
+2025-11-12 20:00:06,677 [INFO] omerGPT.sentiment.reddit: RedditFetcher initialized with DB: data/sentiment_data.duckdb
+2025-11-12 20:00:06,677 [INFO] omerGPT.orchestrator: ✓ Reddit ingestion initialized
+2025-11-12 20:00:06,677 [INFO] GPUCorrelationEngine: ✅ GPU detected for cuDF/cuPy correlation
+2025-11-12 20:00:06,678 [INFO] omerGPT.sentiment.index: sentiment_index table ready
+2025-11-12 20:00:06,678 [INFO] omerGPT.sentiment.index: SentimentIndexGenerator initialized: data/sentiment_data.duckdb
+2025-11-12 20:00:06,678 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3 | GPU=True
+2025-11-12 20:00:06,678 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-12 20:00:06,679 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-12 20:00:06,679 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-12 20:00:06,679 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-12 20:00:06,679 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-12 20:00:06,679 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-12 20:00:06,679 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 1 channels, max_per_minute=5
+2025-11-12 20:00:06,679 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-12 20:00:06,679 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-12 20:00:06,680 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-12 20:00:07,825 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-12 20:00:07,826 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-12 20:00:09,088 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-12 20:00:09,090 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-12 20:00:09,091 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-12 20:00:09,091 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-12 20:00:09,091 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-12 20:00:09,095 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 20:00:09,095 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 20:00:09,095 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-12 20:00:09,095 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-12 20:00:09,096 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-12 20:00:09,096 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-12 20:00:09,096 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 2,
+  "modules": {
+    "anomaly": "2025-11-12T20:00:09.095343"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-12 20:00:09,096 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-12 20:00:09,098 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 20:00:09,098 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 20:01:09,096 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 20:01:09,096 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 20:01:09,102 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 20:01:09,106 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 20:02:09,110 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 20:02:09,111 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 20:02:09,113 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 20:02:09,121 [INFO] features.feature_pipeline: 🔁 Retraining HMM model for BTCUSDT_TEST
+2025-11-12 20:02:10,411 [INFO] features.feature_pipeline: ✅ HMM model trained and saved to checkpoints/hmm_regime.pkl
+2025-11-12 20:02:10,420 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:15,446 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:20,882 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:25,898 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:30,912 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:35,927 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:40,942 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:45,956 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:50,956 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:02:55,973 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:00,988 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:06,003 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:09,100 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 20:03:09,100 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 20:03:09,124 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 20:03:11,030 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:16,047 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:21,064 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:26,078 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:31,096 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:36,113 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:41,117 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:46,132 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:51,147 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:03:56,161 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:01,176 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:06,191 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:09,099 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 20:04:09,099 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 20:04:09,124 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 20:04:11,217 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:16,232 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:21,248 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:26,262 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:31,277 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:36,292 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:41,307 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:46,322 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:51,334 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:04:56,348 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:01,364 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:06,377 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:09,097 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 302,
+  "modules": {
+    "anomaly": "2025-11-12T20:04:09.100953",
+    "features": "2025-11-12T20:01:09.102116",
+    "signals": "2025-11-12T20:04:09.124763"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-12 20:05:09,116 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 20:05:09,116 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 20:05:09,123 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 20:05:11,386 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:16,402 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:21,415 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:26,430 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:31,452 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:36,466 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type
+2025-11-12 20:05:41,483 [ERROR] omerGPT.orchestrator: Feature loop error: Cannot interpret 'datetime64[ns, UTC]' as a data type
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 308, in insert_bulk
+    if np.issubdtype(df[col].dtype, np.datetime64):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\site-packages\numpy\_core\numerictypes.py", line 534, in issubdtype
+    arg1 = dtype(arg1).type
+           ^^^^^^^^^^^
+TypeError: Cannot interpret 'datetime64[ns, UTC]' as a data type

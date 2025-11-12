@@ -8,8 +8,6 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-
-
 """
 src/omerGPT.py
 
@@ -48,8 +46,6 @@ from sentiment_analysis.coingecko_scan import CoinGeckoScan
 from sentiment_analysis.reddit_fetcher import RedditFetcher
 
 
-
-
 class OmerGPT:
     """
     Main orchestrator for OmerGPT trading system.
@@ -71,7 +67,6 @@ class OmerGPT:
         self.coingecko_poller = None
         self.reddit_ingest = None
 
-
         # Task management
         self.tasks: Dict[str, asyncio.Task] = {}
         self.running = False
@@ -92,7 +87,6 @@ class OmerGPT:
         """Load configuration from YAML file."""
         try:
             with open(path, "r", encoding="utf-8") as f:
-
                 config = yaml.safe_load(f)
             return config
         except FileNotFoundError:
@@ -112,9 +106,9 @@ class OmerGPT:
         log_dir = Path("logs")
         log_dir.mkdir(exist_ok=True)
         file_handler = logging.FileHandler(
-    log_dir / f"omerGPT_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log",
-    encoding="utf-8"
-)
+            log_dir / f"omerGPT_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log",
+            encoding="utf-8"
+        )
 
         file_handler.setFormatter(logging.Formatter(log_format))
 
@@ -130,7 +124,7 @@ class OmerGPT:
         self.logger.info("🔧 Initializing modules...")
 
         try:
-            # Database
+            # Database - FIXED: Create instance, not class definition!
             db_path = self.config.get("database", {}).get("path", "data/market_data.duckdb")
             self.db = DatabaseManager(db_path)
             self.logger.info(f"✓ Database initialized: {db_path}")
@@ -154,7 +148,7 @@ class OmerGPT:
                 )
                 self.logger.info("✓ Kraken ingestion initialized")
 
-                        # Etherscan polling
+            # Etherscan polling
             etherscan_cfg = self.config.get("data_sources", {}).get("etherscan", {})
             if etherscan_cfg.get("enabled", True):
                 self.etherscan_poller = EtherscanPoller(
@@ -169,20 +163,16 @@ class OmerGPT:
             coingecko_cfg = self.config.get("data_sources", {}).get("coingecko", {})
             if coingecko_cfg.get("enabled", True):
                 self.coingecko_poller = CoinGeckoScan(
-                coins=["bitcoin", "ethereum", "solana", "dogecoin"],
-                db_manager=self.db
-            )
-
+                    coins=["bitcoin", "ethereum", "solana", "dogecoin"],
+                    db_manager=self.db
+                )
                 self.logger.info("✓ CoinGecko poller initialized")
 
             # Reddit sentiment ingestion
             reddit_cfg = self.config.get("data_sources", {}).get("reddit", {})
             if reddit_cfg.get("enabled", True):
                 self.reddit_ingest = RedditFetcher("data/sentiment_data.duckdb")
-
-
                 self.logger.info("✓ Reddit ingestion initialized")
-
 
             # Feature pipeline
             features_cfg = self.config.get("features", {})
@@ -234,11 +224,8 @@ class OmerGPT:
             self.logger.info("✅ All modules initialized successfully")
 
         except Exception as e:
-                self.logger.error(f"❌ Initialization failed: {e}", exc_info=True)
-                raise
-
-    # (the rest of your file remains unchanged)
-    # =======================================================
+            self.logger.error(f"❌ Initialization failed: {e}", exc_info=True)
+            raise
 
     async def _safe_run(self, coro, name: str, retries: int = 5):
         retry_count = 0
@@ -294,38 +281,35 @@ class OmerGPT:
                     "Etherscan"
                 )
             )
-    # Lightweight on-chain metrics sampler
+
+        # Lightweight on-chain metrics sampler
         from ingestion.etherscan_poll import poll_onchain_metrics
         etherscan_cfg = self.config.get("data_sources", {}).get("etherscan", {})
         api_key = etherscan_cfg.get("api_key", "")
 
         if api_key:
             tasks.append(
-            self._safe_run(
-                poll_onchain_metrics(api_key, self.db, self.shutdown_event),
-                "EtherscanMetrics"
+                self._safe_run(
+                    poll_onchain_metrics(api_key, self.db, self.shutdown_event),
+                    "EtherscanMetrics"
+                )
             )
-        )
-
 
         if getattr(self, "coingecko_poller", None):
             tasks.append(
-        self._safe_run(
-    self.coingecko_poller.start(),
-    "CoinGecko"
-        )
-
-    )
+                self._safe_run(
+                    self.coingecko_poller.start(),
+                    "CoinGecko"
+                )
+            )
 
         if getattr(self, "reddit_ingest", None):
             tasks.append(
-        self._safe_run(
-    self.reddit_ingest.fetch_and_store(),
-    "Reddit"
-    )
-
-    )
-            
+                self._safe_run(
+                    self.reddit_ingest.fetch_and_store(),
+                    "Reddit"
+                )
+            )
         
         if tasks:
             await asyncio.gather(*tasks, return_exceptions=True)
@@ -505,8 +489,6 @@ class OmerGPT:
                 await self.kraken_ingestion.stop()
             if self.etherscan_poller:
                 await self.etherscan_poller.stop()
-            if hasattr(self.etherscan_poller, "stop"):
-                await self.etherscan_poller.stop()
 
             # Stop processing components
             if self.feature_pipeline:
@@ -556,12 +538,10 @@ async def main():
     """Main entry point."""
     # Create orchestrator
     orchestrator = OmerGPT("configs/config.yaml")
-
     
     # Setup signal handlers
     for sig in [signal.SIGINT, signal.SIGTERM]:
         signal.signal(sig, orchestrator.handle_signal)
-
     
     # Run
     try:

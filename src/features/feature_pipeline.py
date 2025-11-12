@@ -39,6 +39,122 @@ LATENCY_TARGET_MS = 100
 
 
 # ==============================================================
+# MOMENTUM INDICATORS (NEW - MISSING MODULE)
+# ==============================================================
+
+class MomentumIndicators:
+    """Simple momentum indicator calculations (RSI, MACD, Momentum, etc.)."""
+    
+    @staticmethod
+    def compute_rsi(prices: pd.Series, period: int = 14) -> float:
+        """
+        Compute RSI (Relative Strength Index) indicator.
+        
+        Args:
+            prices: Price series
+            period: RSI period (default 14)
+            
+        Returns:
+            RSI value (0-100)
+        """
+        try:
+            delta = prices.diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+            
+            # Avoid division by zero
+            if loss.iloc[-1] == 0:
+                return 100.0
+            
+            rs = gain / loss
+            rsi = 100 - (100 / (1 + rs))
+            
+            return float(rsi.iloc[-1]) if not rsi.empty else 50.0
+        except Exception as e:
+            logger.debug(f"RSI computation error: {e}")
+            return 50.0
+    
+    @staticmethod
+    def compute_momentum(prices: pd.Series, period: int = 15) -> float:
+        """
+        Compute momentum (rate of change).
+        
+        Args:
+            prices: Price series
+            period: Lookback period
+            
+        Returns:
+            Momentum value (percentage change)
+        """
+        try:
+            if len(prices) < period + 1:
+                return 0.0
+            
+            momentum = (prices.iloc[-1] - prices.iloc[-period - 1]) / prices.iloc[-period - 1]
+            return float(momentum)
+        except Exception as e:
+            logger.debug(f"Momentum computation error: {e}")
+            return 0.0
+    
+    @staticmethod
+    def compute_macd(prices: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9) -> float:
+        """
+        Compute MACD (Moving Average Convergence Divergence).
+        
+        Args:
+            prices: Price series
+            fast: Fast EMA period
+            slow: Slow EMA period
+            signal: Signal line period
+            
+        Returns:
+            MACD value
+        """
+        try:
+            ema_fast = prices.ewm(span=fast, adjust=False).mean()
+            ema_slow = prices.ewm(span=slow, adjust=False).mean()
+            macd = ema_fast - ema_slow
+            return float(macd.iloc[-1]) if not macd.empty else 0.0
+        except Exception as e:
+            logger.debug(f"MACD computation error: {e}")
+            return 0.0
+
+
+# ==============================================================
+# GARCH VOLATILITY (NEW - MISSING MODULE)
+# ==============================================================
+
+class GARCHVolatility:
+    """Simple GARCH(1,1) volatility forecasting using exponential weighting."""
+    
+    @staticmethod
+    def forecast_volatility(prices: pd.Series, window: int = 30) -> float:
+        """
+        Forecast next-period volatility using exponential weighting.
+        
+        Args:
+            prices: Price series
+            window: Lookback window for volatility calculation
+            
+        Returns:
+            Forecasted volatility
+        """
+        try:
+            returns = prices.pct_change().dropna()
+            
+            if len(returns) < 2:
+                return 0.0
+            
+            # Exponentially weighted volatility
+            volatility = returns.ewm(span=window).std().iloc[-1]
+            
+            return float(volatility) if not pd.isna(volatility) else 0.0
+        except Exception as e:
+            logger.debug(f"GARCH volatility computation error: {e}")
+            return 0.0
+
+
+# ==============================================================
 # HMM REGIME DETECTOR
 # ==============================================================
 
@@ -114,7 +230,7 @@ class HMMRegimeDetector:
 
 
 # ==============================================================
-# FEATURE PIPELINE WRAPPER
+# FEATURE PIPELINE WRAPPER (FIXED)
 # ==============================================================
 
 class FeaturePipeline:
@@ -131,6 +247,10 @@ class FeaturePipeline:
         self.sentiment_index = SentimentIndexGenerator("data/sentiment_data.duckdb")
 
         self.detector = HMMRegimeDetector(CONFIG)
+        
+        # FIXED: Initialize missing modules
+        self.momentum = MomentumIndicators()
+        self.garch = GARCHVolatility()
 
         logger.info(f"✅ FeaturePipeline initialized | GPU={gpu_enabled}")
 
@@ -168,19 +288,61 @@ class FeaturePipeline:
 
             # Compute indicators
             rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+            momentum_5m = self.momentum.compute_momentum(candles["close"], 5)
             momentum_15m = self.momentum.compute_momentum(candles["close"], 15)
+            momentum_60m = self.momentum.compute_momentum(candles["close"], 60)
+            macd = self.momentum.compute_macd(candles["close"])
             garch_vol = self.garch.forecast_volatility(candles["close"])
 
+            # Compute volatility for multiple windows
+            vol_5m = candles["return"].rolling(5).std() * np.sqrt(5)
+            vol_15m = candles["return"].rolling(15).std() * np.sqrt(15)
+            vol_60m = candles["return"].rolling(60).std() * np.sqrt(60)
+
+            # Compute ATR (Average True Range)
+            high_low = candles["high"] - candles["low"]
+            high_close = np.abs(candles["high"] - candles["close"].shift())
+            low_close = np.abs(candles["low"] - candles["close"].shift())
+            true_range = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+            atr = true_range.rolling(14).mean().iloc[-1] if len(true_range) > 14 else 0.0
+            atr_pct = (atr / candles["close"].iloc[-1]) if candles["close"].iloc[-1] > 0 else 0.0
+
+            # Bollinger Bands
+            bb_ma = candles["close"].rolling(20).mean()
+            bb_std = candles["close"].rolling(20).std()
+            bb_up = (bb_ma + 2 * bb_std).iloc[-1] if len(bb_ma) > 20 else candles["close"].iloc[-1]
+            bb_dn = (bb_ma - 2 * bb_std).iloc[-1] if len(bb_ma) > 20 else candles["close"].iloc[-1]
+
+            # Volume MA
+            vol_ma = candles["volume"].rolling(20).mean().iloc[-1] if "volume" in candles and len(candles) > 20 else 0.0
+
+            # Placeholders for advanced features
+            spread = 0.0
+            ob_imbalance = 0.0
+            corr_btc_eth = 0.0
+
+            # FINAL FIX: Remove timezone to avoid conversion error
             feature_row = {
                 "symbol": symbol,
-                "ts_ms": datetime.utcnow(),
-                "return_1m": returns[-1],
-                "volatility_5m": vol[-1],
-                "rsi_14": rsi_14,
-                "momentum_15m": momentum_15m,
-                "garch_volatility": garch_vol,
-                "regime_state": label,
-                "regime_confidence": confidence
+                "ts_ms": pd.Timestamp.utcnow().tz_localize(None),  # ← FINAL FIX!
+                "return_1m": float(returns[-1]),
+                "volatility_5m": float(vol_5m.iloc[-1]) if not vol_5m.empty and len(vol_5m) > 5 else 0.0,
+                "volatility_15m": float(vol_15m.iloc[-1]) if not vol_15m.empty and len(vol_15m) > 15 else 0.0,
+                "volatility_60m": float(vol_60m.iloc[-1]) if not vol_60m.empty and len(vol_60m) > 60 else 0.0,
+                "momentum_5m": float(momentum_5m),
+                "momentum_15m": float(momentum_15m),
+                "momentum_60m": float(momentum_60m),
+                "rsi_14": float(rsi_14),
+                "atr": float(atr),
+                "atr_pct": float(atr_pct),
+                "macd": float(macd),
+                "bb_up": float(bb_up),
+                "bb_dn": float(bb_dn),
+                "vol_ma": float(vol_ma),
+                "spread": float(spread),
+                "ob_imbalance": float(ob_imbalance),
+                "corr_btc_eth": float(corr_btc_eth),
+                "computed_at": pd.Timestamp.utcnow().tz_localize(None)  # ← FINAL FIX!
             }
             all_features.append(feature_row)
 

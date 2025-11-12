@@ -1,0 +1,949 @@
+2025-11-12 19:55:34,228 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-12 19:55:34,229 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-12 19:55:34,229 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-12 19:55:34,245 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-12 19:55:34,247 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-12 19:55:34,251 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-12 19:55:34,251 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-12 19:55:34,252 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-12 19:55:34,252 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-12 19:55:34,252 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:55:34,252 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-12 19:55:34,254 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:55:34,254 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:55:34,254 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-12 19:55:34,254 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-12T17:55:34.254324", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-12 19:55:34,254 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-12 19:55:34,254 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-12 19:55:34,262 [INFO] omerGPT.sentiment.reddit: reddit_posts table ready
+2025-11-12 19:55:34,262 [INFO] omerGPT.sentiment.reddit: RedditFetcher initialized with DB: data/sentiment_data.duckdb
+2025-11-12 19:55:34,262 [INFO] omerGPT.orchestrator: ✓ Reddit ingestion initialized
+2025-11-12 19:55:34,262 [INFO] GPUCorrelationEngine: ✅ GPU detected for cuDF/cuPy correlation
+2025-11-12 19:55:34,263 [INFO] omerGPT.sentiment.index: sentiment_index table ready
+2025-11-12 19:55:34,263 [INFO] omerGPT.sentiment.index: SentimentIndexGenerator initialized: data/sentiment_data.duckdb
+2025-11-12 19:55:34,263 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3 | GPU=True
+2025-11-12 19:55:34,263 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-12 19:55:34,263 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-12 19:55:34,263 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-12 19:55:34,263 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-12 19:55:34,263 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-12 19:55:34,263 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-12 19:55:34,263 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 1 channels, max_per_minute=5
+2025-11-12 19:55:34,263 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-12 19:55:34,263 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-12 19:55:34,263 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-12 19:55:35,403 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-12 19:55:35,405 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-12 19:55:36,847 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-12 19:55:36,848 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-12 19:55:36,848 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-12 19:55:36,848 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-12 19:55:36,848 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-12 19:55:36,852 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:55:36,852 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:55:36,852 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-12 19:55:36,852 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-12 19:55:36,853 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-12 19:55:36,853 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-12 19:55:36,853 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 2,
+  "modules": {
+    "anomaly": "2025-11-12T19:55:36.852907"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-12 19:55:36,854 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-12 19:55:36,855 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 19:55:36,855 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 19:56:36,862 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:56:36,862 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:56:36,865 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 19:56:36,871 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:57:36,858 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:57:36,858 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:57:36,866 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 19:57:36,873 [INFO] features.feature_pipeline: 🔁 Retraining HMM model for BTCUSDT_TEST
+2025-11-12 19:57:38,174 [INFO] features.feature_pipeline: ✅ HMM model trained and saved to checkpoints/hmm_regime.pkl
+2025-11-12 19:57:38,193 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:38,194 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:38,195 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:43,214 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:43,214 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:43,214 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:48,233 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:51,214 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:51,214 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:56,234 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:56,234 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:57:56,235 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:01,253 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:01,254 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:01,254 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:06,273 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:06,273 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:06,274 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:11,297 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:11,297 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:11,297 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:16,316 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:16,316 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:16,317 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:21,335 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:21,335 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:21,335 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:26,351 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:26,351 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:26,352 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:31,371 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:31,371 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:31,372 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:36,390 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:36,390 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:36,391 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:36,862 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:58:36,863 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:58:36,870 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:58:41,403 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:41,403 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:41,404 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:46,420 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:46,420 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:46,421 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:51,439 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:51,440 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:51,440 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:56,458 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:56,459 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:58:56,459 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:01,486 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:01,486 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:01,488 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:06,506 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:06,506 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:06,507 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:11,525 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:11,527 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:11,527 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:16,546 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:16,547 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:16,547 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:21,566 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:21,566 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:21,567 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:26,584 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:26,584 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:26,585 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:31,604 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:31,604 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:31,605 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:36,624 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:36,624 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:36,625 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:36,876 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:59:36,876 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:59:36,883 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:59:41,634 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:41,635 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:41,635 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:46,654 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:46,655 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:46,655 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:51,673 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:51,673 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:51,674 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:56,692 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:56,693 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 19:59:56,693 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 20:00:01,711 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 20:00:01,712 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+2025-11-12 20:00:01,712 [ERROR] omerGPT.orchestrator: Feature loop error: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 350, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.ConversionException: Conversion Error: Unimplemented type for cast (BIGINT -> TIMESTAMP)

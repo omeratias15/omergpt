@@ -1,0 +1,252 @@
+2025-11-12 19:03:31,374 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-12 19:03:31,374 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-12 19:03:31,374 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-12 19:03:31,384 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-12 19:03:31,387 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-12 19:03:31,391 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-12 19:03:31,391 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-12 19:03:31,392 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-12 19:03:31,392 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-12 19:03:31,392 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:03:31,395 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-12 19:03:31,395 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:03:31,396 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:03:31,396 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-12 19:03:31,396 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-12T17:03:31.396003", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-12 19:03:31,396 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-12 19:03:31,396 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-12 19:03:31,403 [INFO] omerGPT.sentiment.reddit: reddit_posts table ready
+2025-11-12 19:03:31,403 [INFO] omerGPT.sentiment.reddit: RedditFetcher initialized with DB: data/sentiment_data.duckdb
+2025-11-12 19:03:31,403 [INFO] omerGPT.orchestrator: ✓ Reddit ingestion initialized
+2025-11-12 19:03:31,403 [INFO] GPUCorrelationEngine: ✅ GPU detected for cuDF/cuPy correlation
+2025-11-12 19:03:31,403 [INFO] omerGPT.sentiment.index: sentiment_index table ready
+2025-11-12 19:03:31,403 [INFO] omerGPT.sentiment.index: SentimentIndexGenerator initialized: data/sentiment_data.duckdb
+2025-11-12 19:03:31,403 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3 | GPU=True
+2025-11-12 19:03:31,403 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-12 19:03:31,404 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-12 19:03:31,405 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-12 19:03:31,405 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-12 19:03:31,405 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-12 19:03:31,405 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-12 19:03:31,405 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 1 channels, max_per_minute=5
+2025-11-12 19:03:31,405 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-12 19:03:31,405 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-12 19:03:31,405 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-12 19:03:32,586 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-12 19:03:32,587 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-12 19:03:34,148 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-12 19:03:34,149 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-12 19:03:34,149 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-12 19:03:34,149 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-12 19:03:34,149 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-12 19:03:34,154 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:03:34,154 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:03:34,154 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-12 19:03:34,154 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-12 19:03:34,154 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-12 19:03:34,154 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-12 19:03:34,154 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 2,
+  "modules": {
+    "anomaly": "2025-11-12T19:03:34.154801"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-12 19:03:34,156 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-12 19:03:34,157 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 19:03:34,158 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 19:04:34,157 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:04:34,158 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:04:34,161 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 19:04:34,167 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:05:34,154 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:05:34,154 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:05:34,158 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 19:05:34,168 [INFO] features.feature_pipeline: 🔁 Retraining HMM model for BTCUSDT_TEST
+2025-11-12 19:05:35,463 [INFO] features.feature_pipeline: ✅ HMM model trained and saved to checkpoints/hmm_regime.pkl
+2025-11-12 19:05:35,464 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:05:40,474 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:05:45,484 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:05:50,492 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:05:55,500 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:00,510 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:05,523 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:10,531 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:15,540 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:20,551 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:25,561 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:30,571 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:34,152 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:06:34,153 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:06:34,159 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:06:35,590 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:40,599 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:45,608 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:50,617 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:06:55,627 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:07:00,636 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:07:05,648 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:07:10,656 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:07:15,666 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-12 19:07:20,675 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'

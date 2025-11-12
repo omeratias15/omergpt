@@ -6,26 +6,28 @@ system:
   profiling_enabled: false
   save_state_interval: 300
   state_file: state.json
+
 database:
   path: data/market_data.duckdb
   checkpoint_interval: 300
   vacuum_interval: 3600
   retention_days: 90
   max_connections: 4
+
 data_sources:
   binance:
     enabled: true
     symbols:
-    - BTCUSDT
-    - ETHUSDT
-    - SOLUSDT
-    - BNBUSDT
-    - XRPUSDT
-    - DOGEUSDT
-    - ADAUSDT
-    - AVAXUSDT
-    - MATICUSDT
-    - DOTUSDT
+      - BTCUSDT
+      - ETHUSDT
+      - SOLUSDT
+      - BNBUSDT
+      - XRPUSDT
+      - DOGEUSDT
+      - ADAUSDT
+      - AVAXUSDT
+      - MATICUSDT
+      - DOTUSDT
     interval: 1m
     ws_url: wss://stream.binance.com:9443/stream
     timeout: 30
@@ -34,11 +36,16 @@ data_sources:
     max_backoff: 60
     max_retries: 10
     batch_size: 20
+    # NEW: Add API credentials for historical data and REST endpoints
+    api_key: ${BINANCE_API_KEY}
+    api_secret: ${BINANCE_API_SECRET}
+    use_testnet: false
+  
   kraken:
     enabled: true
     symbols:
-    - BTC/USDT
-    - ETH/USDT
+      - BTC/USDT
+      - ETH/USDT
     interval: 1
     ws_url: wss://ws.kraken.com
     timeout: 30
@@ -47,12 +54,13 @@ data_sources:
     max_backoff: 60
     max_retries: 10
     batch_size: 20
+  
   etherscan:
     enabled: true
     api_key: ${ETHERSCAN_API_KEY}
     addresses:
-    - '0x1111111254fb6c44bac0bed2854e76f90643097d'
-    - '0xe592427a0aeb6b7b0edddc9bfd199a85dbc73d69'
+      - '0x1111111254fb6c44bac0bed2854e76f90643097d'
+      - '0xe592427a0aeb6b7b0edddc9bfd199a85dbc73d69'
     poll_interval: 15
     request_timeout: 20
     max_retries: 10
@@ -60,39 +68,92 @@ data_sources:
     initial_backoff: 1
     max_backoff: 60
     batch_size: 50
+  
   coingecko:
     enabled: true
     poll_interval: 3600
+  
   reddit:
     enabled: true
     poll_interval: 3600
     subreddits:
-    - cryptocurrency
-    - ethtrader
+      - cryptocurrency
+      - ethtrader
+  
+  # NEW: FRED Economic Data (optional, for macro regime detection)
+  fred:
+    enabled: false  # Set to true if you want macro features
+    api_key: ${FRED_API_KEY}
+    series:
+      - DGS10      # 10-Year Treasury Rate
+      - EFFR       # Federal Funds Rate
+      - CPIAUCSL   # CPI Inflation
+      - UNRATE     # Unemployment Rate
+    poll_interval: 86400  # Daily
+    cache_hours: 24
+
 features:
   volatility:
-  - garch
-  - ewm
-  - rolling_std
-  - parkinson
+    - garch
+    - ewm
+    - rolling_std
+    - parkinson
+  
   momentum:
-  - rsi
-  - macd
-  - bollinger
-  - stochastic
+    - rsi
+    - macd
+    - bollinger
+    - stochastic
+  
   volume:
-  - obv
-  - vwap
-  - volume_profile
-  - cvd
+    - obv
+    - vwap
+    - volume_profile
+    - cvd
+  
   liquidity:
-  - bid_ask_spread
-  - order_book_imbalance
-  - depth
+    - bid_ask_spread
+    - order_book_imbalance
+    - depth
+  
   correlation:
-  - rolling_correlation
-  - beta
-  - cointegration
+    - rolling_correlation
+    - beta
+    - cointegration
+  
+  # NEW: Extended features to reach 50+ features (as per research)
+  price_action:
+    - sma_5
+    - sma_15
+    - sma_60
+    - ema_12
+    - ema_26
+    - price_momentum
+    - price_acceleration
+  
+  microstructure:
+    - trade_imbalance
+    - order_flow_toxic
+    - roll_spread
+    - effective_spread
+  
+  regime_detection:
+    - hmm_state
+    - volatility_regime
+    - trend_strength
+  
+  cross_asset:
+    - btc_correlation
+    - eth_correlation
+    - sector_correlation
+  
+  # Configuration
+  window_sizes: [5, 15, 60]
+  update_interval: 60
+  gpu_enabled: true
+  feature_selection: true
+  max_features: 50
+
 anomaly_detection:
   isolation_forest:
     enabled: true
@@ -100,20 +161,24 @@ anomaly_detection:
     contamination: 0.01
     max_features: 1.0
     use_gpu: true
+  
   dbscan:
     enabled: true
     eps: 0.5
     min_samples: 10
     use_gpu: true
+  
   hmm_regime:
     enabled: true
     n_states: 3
     covariance_type: full
+  
   changepoint:
     enabled: true
     model: rbf
     min_size: 2
     jump: 1
+
 signals:
   enabled: true
   update_interval: 60
@@ -129,31 +194,81 @@ signals:
   hybrid_mode: true
   symbols_blacklist: []
   signal_retention_days: 30
+
+# NEW: Risk Management (as per research paper)
+risk_management:
+  enabled: true
+  
+  position_sizing:
+    method: kelly_criterion
+    max_position_pct: 0.05  # Max 5% per trade
+    min_position_pct: 0.01  # Min 1% per trade
+    kelly_fraction: 0.25    # Conservative Kelly (1/4)
+  
+  stop_loss:
+    method: atr
+    atr_multiplier: 2.0
+    max_loss_pct: 0.02  # Max 2% loss per trade
+  
+  take_profit:
+    method: risk_reward
+    risk_reward_ratio: 2.0  # 2:1 R/R
+  
+  portfolio:
+    max_correlation: 0.7
+    max_drawdown: 0.2
+    max_concurrent_positions: 5
+
+# NEW: Backtesting Configuration (as per research paper)
+backtesting:
+  enabled: true
+  mode: walk_forward
+  train_days: 60
+  test_days: 30
+  initial_capital: 10000
+  commission: 0.001  # 0.1%
+  slippage: 0.0005   # 0.05%
+  
+  validation:
+    information_ratio_target: 1.0
+    sharpe_target: 1.5
+    hit_rate_target: 0.55
+    max_drawdown_limit: 0.2
+  
+  output:
+    save_trades: true
+    save_equity_curve: true
+    save_metrics: true
+    output_dir: backtest_results
+
 alerts:
   telegram:
     enabled: true
     token: ${TELEGRAM_BOT_TOKEN}
     chat_ids:
-    - '123456789'
-    - '-987654321'
+      - ${TELEGRAM_CHAT_ID}  # FIXED: Use env variable instead of hardcoded
     polling_interval: 30
     max_alerts_per_minute: 5
     parse_mode: MarkdownV2
     request_timeout: 10
     retry_attempts: 3
     queue_size: 100
+  
   discord:
     enabled: false
     webhook_url: ${DISCORD_WEBHOOK_URL}
+  
   email:
     enabled: false
     smtp_server: smtp.gmail.com
     from_address: ${EMAIL_FROM}
     to_addresses:
-    - admin@example.com
+      - admin@example.com
+  
   console_log:
     enabled: true
     log_level: INFO
+
 logging:
   level: INFO
   log_to_file: true
@@ -167,6 +282,7 @@ logging:
   batch_performance: true
   structured: true
   gpu_metrics: true
+
 scheduler:
   max_concurrent_tasks: 8
   task_timeout: 300
@@ -175,6 +291,7 @@ scheduler:
   health_check_interval: 60
   restart_on_failure: true
   restart_delay: 5
+
 gpu:
   enabled: true
   device: 0
@@ -182,32 +299,38 @@ gpu:
   allow_growth: true
   mixed_precision: true
   fallback_to_cpu: true
+
 ensemble:
   weights:
     isolation_forest: 0.4
     hmm: 0.3
     dbscan: 0.3
+
 validation:
   psi_threshold: 0.2
   ks_threshold: 0.3
   ks_pvalue_threshold: 0.01
   wasserstein_threshold: 0.1
   retrain_interval: 300
+
 performance:
   latency_target_ms: 100
   retrain_max_delay_s: 300
+
 signal:
   atr_spike: 2.5
   volatility_threshold: 0.6
   correlation_decay: 0.3
   volume_thresh: 0.05
   min_confidence: 0.8
+
 drift_monitoring:
   enabled: true
   psi_threshold: 0.2
   ks_threshold: 0.3
   wasserstein_threshold: 0.5
   check_interval: 300
+
 validation_metrics:
   information_ratio: true
   sharpe_ratio: true

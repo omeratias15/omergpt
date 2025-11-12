@@ -24,6 +24,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import duckdb
 import pandas as pd
+import numpy as np
 
 logger = logging.getLogger("omerGPT.storage.db_manager")
 
@@ -113,7 +114,7 @@ class DatabaseManager:
         try:
             # Candles
             self.conn.execute("""
-                 CREATE TABLE IF NOT EXISTS candles (
+                CREATE TABLE IF NOT EXISTS candles (
                     symbol TEXT,
                     ts_ms BIGINT,
                     open REAL,
@@ -121,11 +122,9 @@ class DatabaseManager:
                     low REAL,
                     close REAL,
                     volume REAL,
-                 close_time BIGINT
-             );
-        """)
-
-
+                    close_time BIGINT
+                )
+            """)
 
             # Features
             self.conn.execute("""
@@ -232,7 +231,7 @@ class DatabaseManager:
                     bid_size REAL,
                     ask_price REAL,
                     ask_size REAL
-                );
+                )
             """)
 
             # Create Indexes
@@ -299,16 +298,23 @@ class DatabaseManager:
         Returns:
             Number of rows inserted
         """
+        
         if df.empty:
             return 0
-            # --- Fix timestamp columns before insert ---
-        import numpy as np
-        for col in ["ts_ms", "close_time"]:
-            if col in df.columns:
-                if np.issubdtype(df[col].dtype, np.datetime64):
-                # Convert datetime64[ns] → int64 milliseconds
-                    df[col] = (df[col].astype("int64") // 1_000_000).astype("int64")
-
+        
+        # --- BRUTAL FIX: Force convert ALL datetime columns to int64 ---
+        for col in df.columns:
+            # Check if column dtype contains 'datetime' string
+            if 'datetime' in str(df[col].dtype).lower():
+                try:
+                    # Remove timezone if present
+                    if hasattr(df[col].dt, 'tz') and df[col].dt.tz is not None:
+                        df[col] = df[col].dt.tz_localize(None)
+                    # Convert to int64 milliseconds
+                    df[col] = (df[col].astype('int64') // 1_000_000).astype('int64')
+                    logger.debug(f"Converted {col} from datetime to int64")
+                except Exception as e:
+                    logger.warning(f"Failed to convert {col}: {e}")
 
         async with self.lock:
             try:
@@ -416,7 +422,6 @@ class DatabaseManager:
             return result[0] if result and result[0] else None
         except Exception:
             return None
-
 
     async def get_health_report(self) -> Dict[str, Any]:
         """
@@ -766,7 +771,3 @@ if __name__ == "__main__":
         db.close()
 
     asyncio.run(test_db())
-
-
-
-

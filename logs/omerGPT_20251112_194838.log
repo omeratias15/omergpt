@@ -1,0 +1,1840 @@
+2025-11-12 19:48:38,088 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-12 19:48:38,088 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-12 19:48:38,088 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-12 19:48:38,098 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-12 19:48:38,098 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-12 19:48:38,103 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-12 19:48:38,103 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-12 19:48:38,103 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-12 19:48:38,103 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-12 19:48:38,103 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:48:38,103 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-12 19:48:38,103 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:48:38,107 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-12 19:48:38,107 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-12 19:48:38,107 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-12T17:48:38.107792", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-12 19:48:38,107 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-12 19:48:38,107 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-12 19:48:38,113 [INFO] omerGPT.sentiment.reddit: reddit_posts table ready
+2025-11-12 19:48:38,113 [INFO] omerGPT.sentiment.reddit: RedditFetcher initialized with DB: data/sentiment_data.duckdb
+2025-11-12 19:48:38,113 [INFO] omerGPT.orchestrator: ✓ Reddit ingestion initialized
+2025-11-12 19:48:38,113 [INFO] GPUCorrelationEngine: ✅ GPU detected for cuDF/cuPy correlation
+2025-11-12 19:48:38,113 [INFO] omerGPT.sentiment.index: sentiment_index table ready
+2025-11-12 19:48:38,113 [INFO] omerGPT.sentiment.index: SentimentIndexGenerator initialized: data/sentiment_data.duckdb
+2025-11-12 19:48:38,113 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3 | GPU=True
+2025-11-12 19:48:38,113 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-12 19:48:38,113 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-12 19:48:38,113 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-12 19:48:38,113 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-12 19:48:38,113 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-12 19:48:38,113 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-12 19:48:38,113 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 1 channels, max_per_minute=5
+2025-11-12 19:48:38,113 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-12 19:48:38,113 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-12 19:48:38,113 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-12 19:48:40,087 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-12 19:48:40,092 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-12 19:48:41,472 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-12 19:48:41,472 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-12 19:48:41,472 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-12 19:48:41,472 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-12 19:48:41,472 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-12 19:48:41,477 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:48:41,477 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:48:41,477 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-12 19:48:41,477 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-12 19:48:41,477 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-12 19:48:41,477 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-12 19:48:41,477 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 3,
+  "modules": {
+    "anomaly": "2025-11-12T19:48:41.477693"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-12 19:48:41,477 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-12 19:48:41,481 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 19:48:41,481 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 19:49:41,490 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:49:41,490 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:49:41,495 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-12 19:49:41,500 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:50:41,502 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:50:41,502 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:50:41,506 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-12 19:50:41,512 [INFO] features.feature_pipeline: 🔁 Retraining HMM model for BTCUSDT_TEST
+2025-11-12 19:50:42,866 [INFO] features.feature_pipeline: ✅ HMM model trained and saved to checkpoints/hmm_regime.pkl
+2025-11-12 19:50:42,875 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:42,876 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:42,876 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:47,900 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:47,900 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:47,900 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:52,914 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:53,773 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:53,773 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:58,783 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:58,783 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:50:58,783 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:03,797 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:03,797 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:03,797 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:08,822 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:08,823 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:08,823 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:13,843 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:13,843 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:13,843 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:18,858 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:18,858 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:18,858 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:23,874 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:23,875 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:23,875 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:28,887 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:28,887 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:28,887 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:33,905 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:33,905 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:33,905 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:38,919 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:38,919 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:38,920 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:41,505 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:51:41,505 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:51:41,512 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:51:43,931 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:43,931 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:43,932 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:48,956 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:48,956 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:48,957 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:53,970 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:53,970 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:53,972 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:58,991 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:58,991 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:51:58,993 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:04,016 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:04,016 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:04,016 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:09,047 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:09,047 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:09,048 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:14,064 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:14,064 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:14,064 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:19,080 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:19,080 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:19,080 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:24,097 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:24,097 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:24,097 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:29,116 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:29,116 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:29,116 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:34,129 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:34,129 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:34,131 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:39,158 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:39,158 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:39,158 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:41,525 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:52:41,525 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:52:41,527 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:52:44,166 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:44,166 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:44,166 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:49,182 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:49,184 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:49,184 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:54,201 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:54,201 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:54,203 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:59,219 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:59,219 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:52:59,219 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:04,234 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:04,234 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:04,234 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:09,256 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:09,258 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:09,258 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:14,287 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:14,287 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:14,288 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:19,299 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:19,299 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:19,299 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:24,311 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:24,311 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:24,311 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:29,324 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:29,324 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:29,324 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:34,344 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:34,344 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:34,344 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:39,367 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:39,367 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:39,367 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:41,478 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 303,
+  "modules": {
+    "anomaly": "2025-11-12T19:52:41.525211",
+    "features": "2025-11-12T19:49:41.495372",
+    "signals": "2025-11-12T19:52:41.527767"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-12 19:53:41,526 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:53:41,527 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:53:41,533 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:53:44,390 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:44,390 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:44,392 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:49,409 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:49,410 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:49,411 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:54,424 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:54,424 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:54,425 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:59,439 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:59,439 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:53:59,439 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:04,453 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:04,454 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:04,454 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:09,467 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:09,468 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:09,468 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:14,486 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:14,487 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:14,487 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:19,501 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:19,501 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:19,502 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:24,516 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:24,516 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:24,518 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:29,531 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:29,531 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:29,532 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:34,544 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:34,544 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:34,545 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:39,560 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:39,560 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:39,561 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:41,534 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-12 19:54:41,534 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-12 19:54:41,541 [INFO] omerGPT.signals.engine: Generated 0 signals across 3 symbols
+2025-11-12 19:54:44,572 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:44,572 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:44,574 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:49,588 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:49,588 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:49,589 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:54,602 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:54,604 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:54,604 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:59,620 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:59,620 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:54:59,620 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:04,635 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:04,636 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:04,636 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:09,651 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:09,651 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:09,652 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:14,668 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:14,668 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:14,669 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:19,682 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:19,684 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:19,684 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:24,698 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:24,698 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:24,698 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+    await self.db.upsert_features(df)
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:29,715 [ERROR] omerGPT.storage.db_manager: Bulk insert sync error: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:29,716 [ERROR] omerGPT.storage.db_manager: ❌ Bulk insert failed: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
+2025-11-12 19:55:29,716 [ERROR] omerGPT.orchestrator: Feature loop error: Binder Error: table features has 20 columns but 9 values were supplied
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 323, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 309, in update_features
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 585, in upsert_features
+    return await self.insert_bulk("features", df, mode="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 316, in insert_bulk
+    rows = await loop.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 344, in _bulk_insert_sync
+    self.conn.execute(query)
+duckdb.duckdb.BinderException: Binder Error: table features has 20 columns but 9 values were supplied
