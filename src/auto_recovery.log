@@ -1,0 +1,2 @@
+2025-10-29 23:06:07,123 [INFO] omerGPT.auto_recovery.watchdog: Watchdog initialized: check_interval=10s
+2025-10-29 23:06:07,123 [INFO] omerGPT.auto_recovery.watchdog: Starting watchdog loop (interval: 10s)

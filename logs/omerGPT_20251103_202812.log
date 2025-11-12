@@ -1,0 +1,16 @@
+2025-11-03 20:28:12,404 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 20:28:12,404 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 20:28:12,404 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 20:28:12,404 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-03T18:28:12.404357", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-03 20:28:12,404 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3, GPU=False, batch_interval=5s, contamination=0.01
+2025-11-03 20:28:12,414 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.02
+2025-11-03 20:28:12,414 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-03 20:28:12,416 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 2 channels, max_per_minute=5
+2025-11-03 20:28:12,416 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-03 20:28:13,719 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-03 20:28:16,247 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 120m
+2025-11-03 20:28:16,247 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-03 20:28:16,259 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-03 20:29:16,254 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 120m
+2025-11-03 20:29:16,254 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-03 20:29:16,257 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols

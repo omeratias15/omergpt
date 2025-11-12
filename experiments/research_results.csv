@@ -1,0 +1,5 @@
+index,atr_spike_threshold,min_confidence,volume_thresh,duration_sec,errors,tasks_active
+1,0.01,0.6,500,0.11,0,0
+2,0.02,0.7,1000,0.11,0,0
+3,0.03,0.8,2000,0.11,0,0
+4,0.05,0.9,3000,0.1,0,0

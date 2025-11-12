@@ -1,0 +1,80 @@
+2025-10-31 21:10:25,094 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-10-31 21:10:25,094 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-10-31 21:10:25,137 - __main__ - INFO - ============================================================
+2025-10-31 21:10:25,139 - __main__ - INFO - omerGPT API Server Starting
+2025-10-31 21:10:25,139 - __main__ - INFO - ============================================================
+2025-10-31 21:10:25,139 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjE5NDUwMjUsImV4cCI6MTc2MTk0ODYyNX0.qEvrWPgWpXUoltobwZvTrI7ii4gN4jrE8D0rBZnSTyE
+2025-10-31 21:10:25,139 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-10-31 21:10:25,140 - __main__ - INFO - ============================================================
+2025-11-01 09:32:59,133 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-01 10:10:39,207 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-01 10:10:39,208 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-01 10:10:39,250 - __main__ - INFO - ============================================================
+2025-11-01 10:10:39,251 - __main__ - INFO - omerGPT API Server Starting
+2025-11-01 10:10:39,251 - __main__ - INFO - ============================================================
+2025-11-01 10:10:39,251 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjE5OTE4MzksImV4cCI6MTc2MTk5NTQzOX0.XIsrtOeg_eZ7VoZV2RybwjhmqSQgG3_9eE-ML1fge8I
+2025-11-01 10:10:39,251 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-01 10:10:39,252 - __main__ - INFO - ============================================================
+2025-11-01 10:11:01,776 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-03 17:00:24,399 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 17:00:24,399 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 17:00:24,439 - __main__ - INFO - ============================================================
+2025-11-03 17:00:24,440 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 17:00:24,440 - __main__ - INFO - ============================================================
+2025-11-03 17:00:24,441 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxODkyMjQsImV4cCI6MTc2MjE5MjgyNH0.YAakQIGwoyTTWXCZcBzmEQjzbzwrCCGJypH4NBY1jmU
+2025-11-03 17:00:24,441 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 17:00:24,441 - __main__ - INFO - ============================================================
+2025-11-03 17:00:28,852 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-03 17:50:41,725 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 17:50:41,726 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 17:50:41,746 - __main__ - INFO - ============================================================
+2025-11-03 17:50:41,747 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 17:50:41,748 - __main__ - INFO - ============================================================
+2025-11-03 17:50:41,748 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxOTIyNDEsImV4cCI6MTc2MjE5NTg0MX0.amVmhI7U8-C-zSphjK7-p8tzC3eqHv6ThozL5-aUqbg
+2025-11-03 17:50:41,748 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 17:50:41,749 - __main__ - INFO - ============================================================
+2025-11-03 17:58:28,161 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 17:58:28,162 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 17:58:28,173 - __main__ - INFO - ============================================================
+2025-11-03 17:58:28,175 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 17:58:28,175 - __main__ - INFO - ============================================================
+2025-11-03 17:58:28,175 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxOTI3MDgsImV4cCI6MTc2MjE5NjMwOH0.VP8hiqi5LPxZBd031Mhc7t84SY4AWn-xd2I4QYA9wm4
+2025-11-03 17:58:28,176 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 17:58:28,176 - __main__ - INFO - ============================================================
+2025-11-03 17:58:31,882 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-03 17:59:49,761 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 17:59:49,762 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 17:59:49,777 - __main__ - INFO - ============================================================
+2025-11-03 17:59:49,778 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 17:59:49,779 - __main__ - INFO - ============================================================
+2025-11-03 17:59:49,779 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxOTI3ODksImV4cCI6MTc2MjE5NjM4OX0.Nmv4fGwts4Vrpi-pZpmvy_L4jVn1jthpsFSxGLkyAA4
+2025-11-03 17:59:49,779 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 17:59:49,780 - __main__ - INFO - ============================================================
+2025-11-03 18:00:46,798 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-03 18:01:16,375 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 18:01:16,375 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 18:01:16,385 - __main__ - INFO - ============================================================
+2025-11-03 18:01:16,386 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 18:01:16,387 - __main__ - INFO - ============================================================
+2025-11-03 18:01:16,387 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxOTI4NzYsImV4cCI6MTc2MjE5NjQ3Nn0.TuUojSpnM4C6CzDA6Vjmg7c71rap8lTXDvXLCIpRSo0
+2025-11-03 18:01:16,387 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 18:01:16,388 - __main__ - INFO - ============================================================
+2025-11-03 18:02:55,984 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-03 18:19:01,071 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 18:19:01,071 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 18:19:01,096 - __main__ - INFO - ============================================================
+2025-11-03 18:19:01,097 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 18:19:01,097 - __main__ - INFO - ============================================================
+2025-11-03 18:19:01,098 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxOTM5NDEsImV4cCI6MTc2MjE5NzU0MX0.tA_c1eEjcBJP8ydP7ENqelHdcHmgMswy78XGPw7Ld8c
+2025-11-03 18:19:01,098 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 18:19:01,098 - __main__ - INFO - ============================================================
+2025-11-03 18:45:40,150 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-03 18:45:44,976 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-03 18:45:44,976 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-03 18:45:44,991 - __main__ - INFO - ============================================================
+2025-11-03 18:45:44,992 - __main__ - INFO - omerGPT API Server Starting
+2025-11-03 18:45:44,992 - __main__ - INFO - ============================================================
+2025-11-03 18:45:44,993 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjIxOTU1NDQsImV4cCI6MTc2MjE5OTE0NH0.TOeLQOEfe1E4gQlN_d4GYvIMQR6Yn9N3mmF4v9jIMFc
+2025-11-03 18:45:44,993 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-03 18:45:44,993 - __main__ - INFO - ============================================================
+2025-11-03 21:00:12,949 - __main__ - INFO - omerGPT API Server Shutting Down

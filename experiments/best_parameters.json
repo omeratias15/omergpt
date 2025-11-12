@@ -1,0 +1,9 @@
+{
+  "index": 4.0,
+  "atr_spike_threshold": 0.05,
+  "min_confidence": 0.9,
+  "volume_thresh": 3000.0,
+  "duration_sec": 0.1,
+  "errors": 0.0,
+  "tasks_active": 0.0
+}

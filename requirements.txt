@@ -1,0 +1,58 @@
+# ===========================
+# omerGPT Requirements File
+# ===========================
+
+# --- Web / API ---
+fastapi
+uvicorn[standard]
+starlette
+pydantic
+python-multipart
+python-dotenv
+
+# --- Dashboard & Visualization ---
+streamlit
+dash
+dash-bootstrap-components
+plotly
+
+# --- Data & Storage ---
+duckdb
+pandas
+numpy
+pyarrow
+pyyaml
+requests
+aiohttp
+websockets
+
+# --- Market Data Providers ---
+python-binance
+yfinance
+fredapi
+
+# --- Machine Learning / NLP ---
+scikit-learn
+torch
+transformers
+sentencepiece
+vaderSentiment
+ruptures
+
+# --- Econometrics / Volatility Modeling ---
+arch
+
+# --- Monitoring / System ---
+psutil
+pynvml
+nvidia-ml-py3
+
+# --- Security / Reporting ---
+cryptography
+reportlab
+
+# --- Development & Testing ---
+pytest
+pytest-asyncio
+black
+flake8

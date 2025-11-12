@@ -1,0 +1,117 @@
+2025-11-06 21:58:26,917 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 21:58:26,918 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 21:58:26,918 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 21:58:26,920 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-06T19:58:26.920418", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-06 21:58:26,928 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3, GPU=False, batch_interval=5s, contamination=0.01
+2025-11-06 21:58:26,932 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-06 21:58:26,933 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-06 21:58:26,934 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 2 channels, max_per_minute=5
+2025-11-06 21:58:26,939 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-06 21:58:28,135 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-06 21:58:30,758 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 21:58:30,758 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 21:58:30,777 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 21:59:30,762 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 21:59:30,762 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 21:59:30,788 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:00:30,765 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:00:30,766 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:00:30,803 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:01:30,764 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:01:30,764 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:01:30,817 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:02:30,766 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:02:30,767 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:02:30,825 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:03:30,772 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:03:30,773 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:03:30,831 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:04:30,776 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:04:30,777 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:04:30,847 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:05:30,773 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:05:30,773 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:05:30,859 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:06:30,775 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:06:30,776 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:06:30,873 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:07:30,783 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:07:30,784 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:07:30,883 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:08:30,792 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:08:30,792 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:08:30,899 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:09:30,795 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:09:30,795 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:09:30,907 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:10:30,787 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:10:30,788 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:10:30,914 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:11:30,795 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:11:30,796 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:11:30,924 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:12:30,809 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:12:30,810 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:12:30,940 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:13:30,809 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:13:30,809 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:13:30,957 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:14:30,809 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:14:30,810 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:14:30,974 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:15:30,804 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:15:30,805 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:15:30,982 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:16:30,799 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:16:30,801 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:16:30,990 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:17:30,808 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:17:30,809 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:17:31,003 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:18:30,807 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:18:30,808 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:18:31,018 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:19:30,805 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:19:30,806 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:19:31,024 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:20:30,810 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:20:30,810 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:20:31,025 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:21:30,812 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:21:30,812 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:21:31,032 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:22:30,817 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:22:30,819 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:22:31,041 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:23:30,814 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:23:30,815 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:23:31,049 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:24:30,820 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:24:30,820 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:24:31,058 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:25:30,813 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:25:30,814 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:25:31,063 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:26:30,817 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:26:30,818 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:26:31,072 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:27:30,826 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:27:30,827 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:27:31,080 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:28:30,838 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:28:30,839 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:28:31,108 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:29:30,830 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:29:30,831 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:29:31,119 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:30:30,842 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:30:30,843 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:30:31,124 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:31:30,848 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:31:30,848 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:31:31,129 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:32:30,851 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:32:30,852 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-06 22:32:31,149 [INFO] omerGPT.signals.engine: Generated 0 signals across 2 symbols
+2025-11-06 22:33:30,859 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-06 22:33:30,859 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process

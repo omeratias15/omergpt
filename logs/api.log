@@ -1,0 +1,20 @@
+2025-10-29 22:58:04,354 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-10-29 22:58:04,354 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-10-29 22:58:04,412 - __main__ - INFO - ============================================================
+2025-10-29 22:58:04,412 - __main__ - INFO - omerGPT API Server Starting
+2025-10-29 22:58:04,412 - __main__ - INFO - ============================================================
+2025-10-29 22:58:04,416 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjE3NzE0ODQsImV4cCI6MTc2MTc3NTA4NH0.E01i7NvK0EXT6u6dXXhqsQDX2xuWqbPB5IZp9tFcaMo
+2025-10-29 22:58:04,416 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-10-29 22:58:04,416 - __main__ - INFO - ============================================================
+2025-10-29 22:58:17,765 - src.api.middleware - INFO - Request: GET /docs
+2025-10-29 22:58:17,766 - src.api.middleware - INFO - Response: GET /docs Status: 200 Time: 0.001s
+2025-10-29 22:58:17,923 - src.api.middleware - INFO - Request: GET /openapi.json
+2025-10-29 22:58:17,925 - src.api.middleware - INFO - Response: GET /openapi.json Status: 200 Time: 0.002s
+2025-10-29 22:59:02,242 - src.api.middleware - INFO - Request: GET /
+2025-10-29 22:59:02,243 - src.api.middleware - INFO - Response: GET / Status: 404 Time: 0.001s
+2025-10-29 22:59:02,272 - src.api.middleware - INFO - Request: GET /favicon.ico
+2025-10-29 22:59:02,272 - src.api.middleware - INFO - Response: GET /favicon.ico Status: 404 Time: 0.000s
+2025-10-29 22:59:12,562 - src.api.middleware - INFO - Request: GET /docs
+2025-10-29 22:59:12,562 - src.api.middleware - INFO - Response: GET /docs Status: 200 Time: 0.000s
+2025-10-29 22:59:12,731 - src.api.middleware - INFO - Request: GET /openapi.json
+2025-10-29 22:59:12,732 - src.api.middleware - INFO - Response: GET /openapi.json Status: 200 Time: 0.002s

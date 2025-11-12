@@ -1,0 +1,3 @@
+2025-11-02 23:31:57,116 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-02 23:31:57,128 [INFO] omerGPT.ingestion.binance_ws: Stopping Binance WebSocket ingestion...
+2025-11-02 23:31:57,128 [INFO] omerGPT.ingestion.binance_ws: WebSocket closed | Stats: {'running': False, 'connection_alive': False, 'messages_processed': 0, 'messages_dropped': 0, 'total_candles_written': 0, 'queue_size': 0, 'uptime_seconds': 0}

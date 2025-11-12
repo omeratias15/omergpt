@@ -1,0 +1,85 @@
+2025-11-10 19:08:38,581 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-10 19:08:38,581 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-10 19:08:38,582 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-10 19:08:38,594 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-10 19:08:38,596 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-10 19:08:38,601 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-10 19:08:38,601 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-10 19:08:38,602 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-10 19:08:38,602 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-10 19:08:38,603 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-10 19:08:38,603 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-10 19:08:38,603 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-10 19:08:38,604 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-10 19:08:38,604 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-10 19:08:38,604 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-10T17:08:38.604645", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-10 19:08:38,604 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-10 19:08:38,605 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-10 19:08:38,613 [INFO] omerGPT.sentiment.reddit: reddit_posts table ready
+2025-11-10 19:08:38,613 [INFO] omerGPT.sentiment.reddit: RedditFetcher initialized with DB: data/sentiment_data.duckdb
+2025-11-10 19:08:38,613 [INFO] omerGPT.orchestrator: ✓ Reddit ingestion initialized
+2025-11-10 19:08:38,614 [INFO] GPUCorrelationEngine: ✅ GPU detected for cuDF/cuPy correlation
+2025-11-10 19:08:38,614 [INFO] omerGPT.sentiment.index: sentiment_index table ready
+2025-11-10 19:08:38,614 [INFO] omerGPT.sentiment.index: SentimentIndexGenerator initialized: data/sentiment_data.duckdb
+2025-11-10 19:08:38,614 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3 | GPU=True
+2025-11-10 19:08:38,614 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-10 19:08:38,615 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-10 19:08:38,615 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-10 19:08:38,615 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-10 19:08:38,615 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-10 19:08:38,615 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-10 19:08:38,615 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 2 channels, max_per_minute=5
+2025-11-10 19:08:38,615 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-10 19:08:38,615 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-10 19:08:38,615 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-10 19:08:39,837 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-10 19:08:39,838 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-10 19:08:41,213 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-10 19:08:41,214 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-10 19:08:41,214 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-10 19:08:41,214 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-10 19:08:41,214 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-10 19:08:41,217 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-10 19:08:41,218 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-10 19:08:41,218 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-10 19:08:41,218 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-10 19:08:41,219 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-10 19:08:41,219 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-10 19:08:41,219 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 2,
+  "modules": {
+    "anomaly": "2025-11-10T19:08:41.218636"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-10 19:08:41,219 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-10 19:08:41,220 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-10 19:08:41,223 [INFO] omerGPT.signals.engine: Generated 0 signals across 1 symbols
+2025-11-10 19:09:41,214 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-10 19:09:41,216 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-10 19:09:41,238 [INFO] features.feature_pipeline: 🔁 Retraining HMM model for BTCUSDT_TEST
+2025-11-10 19:09:43,095 [INFO] features.feature_pipeline: ✅ HMM model trained and saved to checkpoints/hmm_regime.pkl
+2025-11-10 19:09:43,096 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 339, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'
+2025-11-10 19:09:43,102 [INFO] omerGPT.signals.engine: Generated 0 signals across 1 symbols
+2025-11-10 19:09:48,093 [ERROR] omerGPT.orchestrator: Feature loop error: 'FeaturePipeline' object has no attribute 'momentum'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 339, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 170, in update_features
+    rsi_14 = self.momentum.compute_rsi(candles["close"], 14)
+             ^^^^^^^^^^^^^
+AttributeError: 'FeaturePipeline' object has no attribute 'momentum'

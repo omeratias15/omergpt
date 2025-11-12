@@ -1,0 +1,25 @@
+2025-11-06 22:57:23,733 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 2 symbols: ['BTCUSDT', 'ETHUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 22:57:23,733 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 1 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 22:57:23,734 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 22:57:23,736 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-06T20:57:23.736522", "event": "init", "msg": "Initialized EtherscanPoller for 0 addresses"}
+2025-11-06 22:57:23,744 [INFO] omerGPT.ingestion.binance_ws: Stopping Binance WebSocket ingestion...
+2025-11-06 22:57:23,744 [INFO] omerGPT.ingestion.binance_ws: WebSocket closed | Stats: {'running': False, 'connection_alive': False, 'messages_processed': 0, 'messages_dropped': 0, 'total_candles_written': 0, 'queue_size': 0, 'uptime_seconds': 0}
+2025-11-06 22:57:23,744 [INFO] omerGPT.ingestion.kraken_ws: Stopping Kraken WebSocket ingestion...
+2025-11-06 22:57:23,744 [INFO] omerGPT.ingestion.kraken_ws: WebSocket closed | Stats: {
+  "running": false,
+  "connection_alive": false,
+  "messages_processed": 0,
+  "messages_dropped": 0,
+  "total_records_written": 0,
+  "ohlc_buffer_size": 0,
+  "trade_buffer_size": 0,
+  "ticker_buffer_size": 0,
+  "subscribed_channels": [],
+  "uptime_seconds": 0
+}
+2025-11-06 22:57:23,745 [ERROR] omerGPT.orchestrator: Error during shutdown: 'EtherscanPoller' object has no attribute 'stop'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 484, in shutdown
+    await self.etherscan_poller.stop()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EtherscanPoller' object has no attribute 'stop'

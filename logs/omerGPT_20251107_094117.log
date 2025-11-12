@@ -1,0 +1,45 @@
+2025-11-07 09:41:17,762 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-07 09:41:17,762 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-07 09:41:17,762 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-07 09:41:17,777 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-07 09:41:17,780 [ERROR] omerGPT.storage.db_manager: ❌ Schema initialization failed: Binder Error: Table "anomaly_events" does not have a column named "ts_ms"
+
+Candidate bindings: : "ts"
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 247, in _init_schema
+    self.conn.execute("""
+duckdb.duckdb.BinderException: Binder Error: Table "anomaly_events" does not have a column named "ts_ms"
+
+Candidate bindings: : "ts"
+2025-11-07 09:41:17,781 [ERROR] omerGPT.orchestrator: ❌ Initialization failed: Binder Error: Table "anomaly_events" does not have a column named "ts_ms"
+
+Candidate bindings: : "ts"
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 135, in initialize
+    self.db = DatabaseManager(db_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 57, in __init__
+    self._init_schema()
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 247, in _init_schema
+    self.conn.execute("""
+duckdb.duckdb.BinderException: Binder Error: Table "anomaly_events" does not have a column named "ts_ms"
+
+Candidate bindings: : "ts"
+2025-11-07 09:41:17,781 [ERROR] omerGPT.orchestrator: ❌ Orchestrator error: Binder Error: Table "anomaly_events" does not have a column named "ts_ms"
+
+Candidate bindings: : "ts"
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 461, in run
+    await self.initialize()
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 135, in initialize
+    self.db = DatabaseManager(db_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 57, in __init__
+    self._init_schema()
+  File "C:\LLM\omerGPT\src\storage\db_manager.py", line 247, in _init_schema
+    self.conn.execute("""
+duckdb.duckdb.BinderException: Binder Error: Table "anomaly_events" does not have a column named "ts_ms"
+
+Candidate bindings: : "ts"
+2025-11-07 09:41:17,786 [INFO] omerGPT.orchestrator: 🛑 Initiating graceful shutdown...
+2025-11-07 09:41:17,786 [INFO] omerGPT.orchestrator: ✅ Shutdown complete

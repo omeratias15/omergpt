@@ -1,0 +1,36 @@
+2025-11-03 00:40:31,873 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-03 00:40:31,873 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-03 00:40:31,881 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-03 00:40:31,883 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-03 00:40:31,888 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-03 00:40:31,889 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-03 00:40:31,889 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-03 00:40:31,889 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-03 00:40:31,889 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-03 00:40:31,892 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 00:40:31,892 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-03 00:40:31,892 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-02T22:40:31.892020", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-03 00:40:31,892 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3, GPU=False, batch_interval=5s, contamination=0.01
+2025-11-03 00:40:31,892 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-03 00:40:31,892 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.02
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-03 00:40:31,892 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-03 00:40:31,892 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 2 channels, max_per_minute=5
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-03 00:40:31,892 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-03 00:40:31,892 [INFO] healthcheck: ✅ Orchestrator initialized successfully in 26.11ms
+2025-11-03 00:40:31,892 [INFO] healthcheck: ✅ db module loaded successfully
+2025-11-03 00:40:31,892 [INFO] healthcheck: ✅ feature_pipeline module loaded successfully
+2025-11-03 00:40:31,892 [INFO] healthcheck: ✅ anomaly_detector module loaded successfully
+2025-11-03 00:40:31,892 [INFO] healthcheck: ✅ signal_engine module loaded successfully
+2025-11-03 00:40:31,892 [INFO] healthcheck: ✅ telegram_bot module loaded successfully
+2025-11-03 00:40:31,892 [WARNING] features.feature_pipeline: ⚠️ No trained model found. Returning neutral state.
+2025-11-03 00:40:31,892 [INFO] healthcheck: 📊 Sample HMM prediction → State=calm | Confidence=0.000
+2025-11-03 00:40:31,892 [INFO] healthcheck: 🟢 System integration check complete.
+
+2025-11-03 00:40:31,892 [INFO] healthcheck: 🏁 Health check finished.

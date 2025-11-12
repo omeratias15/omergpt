@@ -1,0 +1,53 @@
+2025-11-06 22:58:38,892 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-06 22:58:38,892 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-06 22:58:38,894 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-06 22:58:38,909 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-06 22:58:38,911 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-06 22:58:38,916 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-06 22:58:38,916 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-06 22:58:38,917 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-06 22:58:38,917 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-06 22:58:38,917 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 2 symbols: ['BTCUSDT', 'ETHUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 22:58:38,918 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-06 22:58:38,918 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 1 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 22:58:38,919 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-06 22:58:38,919 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-06 22:58:38,919 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-06T20:58:38.919753", "event": "init", "msg": "Initialized EtherscanPoller for 0 addresses"}
+2025-11-06 22:58:38,919 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-06 22:58:38,919 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-06 22:58:38,919 [ERROR] omerGPT.orchestrator: ❌ Initialization failed: name 'RedditIngestion' is not defined
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 174, in initialize
+    self.reddit_ingest = RedditIngestion(
+                         ^^^^^^^^^^^^^^^
+NameError: name 'RedditIngestion' is not defined. Did you mean: 'RedditIngestor'?
+2025-11-06 22:58:38,921 [ERROR] omerGPT.orchestrator: ❌ Orchestrator error: name 'RedditIngestion' is not defined
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 440, in run
+    await self.initialize()
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 174, in initialize
+    self.reddit_ingest = RedditIngestion(
+                         ^^^^^^^^^^^^^^^
+NameError: name 'RedditIngestion' is not defined. Did you mean: 'RedditIngestor'?
+2025-11-06 22:58:38,922 [INFO] omerGPT.orchestrator: 🛑 Initiating graceful shutdown...
+2025-11-06 22:58:38,922 [INFO] omerGPT.ingestion.binance_ws: Stopping Binance WebSocket ingestion...
+2025-11-06 22:58:38,922 [INFO] omerGPT.ingestion.binance_ws: WebSocket closed | Stats: {'running': False, 'connection_alive': False, 'messages_processed': 0, 'messages_dropped': 0, 'total_candles_written': 0, 'queue_size': 0, 'uptime_seconds': 0}
+2025-11-06 22:58:38,922 [INFO] omerGPT.ingestion.kraken_ws: Stopping Kraken WebSocket ingestion...
+2025-11-06 22:58:38,922 [INFO] omerGPT.ingestion.kraken_ws: WebSocket closed | Stats: {
+  "running": false,
+  "connection_alive": false,
+  "messages_processed": 0,
+  "messages_dropped": 0,
+  "total_records_written": 0,
+  "ohlc_buffer_size": 0,
+  "trade_buffer_size": 0,
+  "ticker_buffer_size": 0,
+  "subscribed_channels": [],
+  "uptime_seconds": 0
+}
+2025-11-06 22:58:38,922 [ERROR] omerGPT.orchestrator: Error during shutdown: 'EtherscanPoller' object has no attribute 'stop'
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 486, in shutdown
+    await self.etherscan_poller.stop()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EtherscanPoller' object has no attribute 'stop'

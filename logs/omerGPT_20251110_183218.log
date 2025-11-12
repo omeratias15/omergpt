@@ -1,0 +1,574 @@
+2025-11-10 18:32:18,564 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-10 18:32:18,564 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-10 18:32:18,566 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-10 18:32:18,578 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-10 18:32:18,580 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-10 18:32:18,586 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-10 18:32:18,586 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-10 18:32:18,586 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-10 18:32:18,587 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-10 18:32:18,587 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 3
+2025-11-10 18:32:18,587 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 4
+2025-11-10 18:32:18,587 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 6
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 8
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 9
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 10
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 20
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 22
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 25
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 27
+2025-11-10 18:32:18,588 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 28
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 30
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 31
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 33
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 34
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 36
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 37
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 39
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 40
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 43
+2025-11-10 18:32:18,589 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 46
+2025-11-10 18:32:18,590 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 49
+2025-11-10 18:32:18,590 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 52
+2025-11-10 18:32:18,590 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 54
+2025-11-10 18:32:18,591 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 55
+2025-11-10 18:32:18,591 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 56
+2025-11-10 18:32:18,591 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 57
+2025-11-10 18:32:18,591 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 58
+2025-11-10 18:32:18,591 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 60
+2025-11-10 18:32:18,591 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 61
+2025-11-10 18:32:18,592 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 62
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 64
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 65
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 68
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 69
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 70
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 71
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 72
+2025-11-10 18:32:18,593 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 76
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 77
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 78
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 80
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 82
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 83
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 85
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 87
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 88
+2025-11-10 18:32:18,594 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 89
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 91
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 92
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 95
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 96
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 102
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 103
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 105
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 107
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 109
+2025-11-10 18:32:18,595 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 113
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 114
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 116
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 117
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 118
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 119
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 121
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 122
+2025-11-10 18:32:18,596 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 123
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 125
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 126
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 134
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 136
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 137
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 138
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 143
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 144
+2025-11-10 18:32:18,597 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 145
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 147
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 149
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 150
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 152
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 154
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 155
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 157
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 159
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 160
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 161
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 164
+2025-11-10 18:32:18,598 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 166
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 170
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 171
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 172
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 173
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 174
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 175
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 176
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 177
+2025-11-10 18:32:18,599 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 178
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 179
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 180
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 181
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 182
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 187
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 191
+2025-11-10 18:32:18,600 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 192
+2025-11-10 18:32:18,601 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 193
+2025-11-10 18:32:18,601 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 194
+2025-11-10 18:32:18,601 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 197
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 198
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 200
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 201
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 204
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 206
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 207
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 210
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 212
+2025-11-10 18:32:18,602 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 213
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 214
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 216
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 217
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 218
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 220
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 221
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 222
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 223
+2025-11-10 18:32:18,603 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 224
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 226
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 227
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 229
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 230
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 232
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 233
+2025-11-10 18:32:18,604 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 234
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 235
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 236
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 237
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 239
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 240
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 241
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 243
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 245
+2025-11-10 18:32:18,605 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 246
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 249
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 250
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 251
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 252
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 253
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 254
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 255
+2025-11-10 18:32:18,606 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 256
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 257
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 258
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 259
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 263
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 264
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 265
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 267
+2025-11-10 18:32:18,607 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 269
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 271
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 273
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 274
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 275
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 277
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 278
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 279
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 280
+2025-11-10 18:32:18,608 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 284
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 285
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 286
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 287
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 291
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 292
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 293
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 294
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 298
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 299
+2025-11-10 18:32:18,609 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 300
+2025-11-10 18:32:18,610 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 301
+2025-11-10 18:32:18,610 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 305
+2025-11-10 18:32:18,610 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 307
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 308
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 309
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 310
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 312
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 314
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 315
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 316
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 319
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 321
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 322
+2025-11-10 18:32:18,611 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 323
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 325
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 326
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 327
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 329
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 330
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 331
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 332
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 333
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 335
+2025-11-10 18:32:18,612 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 336
+2025-11-10 18:32:18,613 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 341
+2025-11-10 18:32:18,613 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 344
+2025-11-10 18:32:18,613 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 348
+2025-11-10 18:32:18,613 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 353
+2025-11-10 18:32:18,613 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 355
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 356
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 358
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 360
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 362
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 366
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 368
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 369
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 376
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 377
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 380
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 382
+2025-11-10 18:32:18,614 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 383
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 384
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 386
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 387
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 388
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 390
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 391
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 392
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 394
+2025-11-10 18:32:18,615 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 396
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 397
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 399
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 400
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 402
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 403
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 405
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 406
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 409
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 410
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 411
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 412
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 413
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 415
+2025-11-10 18:32:18,616 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 417
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 421
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 422
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 423
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 424
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 425
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 431
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 432
+2025-11-10 18:32:18,617 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 434
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 439
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 444
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 445
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 446
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 447
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 448
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 454
+2025-11-10 18:32:18,618 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 456
+2025-11-10 18:32:18,619 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-10 18:32:18,619 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-10 18:32:18,619 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-10 18:32:18,620 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 3
+2025-11-10 18:32:18,620 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 4
+2025-11-10 18:32:18,620 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 6
+2025-11-10 18:32:18,620 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 8
+2025-11-10 18:32:18,620 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 9
+2025-11-10 18:32:18,620 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 10
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 20
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 22
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 25
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 27
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 28
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 30
+2025-11-10 18:32:18,621 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 31
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 33
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 34
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 36
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 37
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 39
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 40
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 43
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 46
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 49
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 52
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 54
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 55
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 56
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 57
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 58
+2025-11-10 18:32:18,622 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 60
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 61
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 62
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 64
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 65
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 68
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 69
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 70
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 71
+2025-11-10 18:32:18,623 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 72
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 76
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 77
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 78
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 80
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 82
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 83
+2025-11-10 18:32:18,624 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 85
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 87
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 88
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 89
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 91
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 92
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 95
+2025-11-10 18:32:18,625 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 96
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 102
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 103
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 105
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 107
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 109
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 113
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 114
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 116
+2025-11-10 18:32:18,626 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 117
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 118
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 119
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 121
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 122
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 123
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 125
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 126
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 134
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 136
+2025-11-10 18:32:18,627 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 137
+2025-11-10 18:32:18,628 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 138
+2025-11-10 18:32:18,628 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 143
+2025-11-10 18:32:18,628 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 144
+2025-11-10 18:32:18,628 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 145
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 147
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 149
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 150
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 152
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 154
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 155
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 157
+2025-11-10 18:32:18,629 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 159
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 160
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 161
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 164
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 166
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 170
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 171
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 172
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 173
+2025-11-10 18:32:18,630 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 174
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 175
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 176
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 177
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 178
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 179
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 180
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 181
+2025-11-10 18:32:18,631 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 182
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 187
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 191
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 192
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 193
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 194
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 197
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 198
+2025-11-10 18:32:18,632 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 200
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 201
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 204
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 206
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 207
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 210
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 212
+2025-11-10 18:32:18,633 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 213
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 214
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 216
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 217
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 218
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 220
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 221
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 222
+2025-11-10 18:32:18,634 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 223
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 224
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 226
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 227
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 229
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 230
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 232
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 233
+2025-11-10 18:32:18,635 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 234
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 235
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 236
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 237
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 239
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 240
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 241
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 243
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 245
+2025-11-10 18:32:18,636 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 246
+2025-11-10 18:32:18,637 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 249
+2025-11-10 18:32:18,637 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 250
+2025-11-10 18:32:18,637 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 251
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 252
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 253
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 254
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 255
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 256
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 257
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 258
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 259
+2025-11-10 18:32:18,638 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 263
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 264
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 265
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 267
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 269
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 271
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 273
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 274
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 275
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 277
+2025-11-10 18:32:18,639 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 278
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 279
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 280
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 284
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 285
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 286
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 287
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 291
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 292
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 293
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 294
+2025-11-10 18:32:18,640 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 298
+2025-11-10 18:32:18,642 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 299
+2025-11-10 18:32:18,642 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 300
+2025-11-10 18:32:18,642 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 301
+2025-11-10 18:32:18,642 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 305
+2025-11-10 18:32:18,642 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 307
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 308
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 309
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 310
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 312
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 314
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 315
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 316
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 319
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 321
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 322
+2025-11-10 18:32:18,643 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 323
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 325
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 326
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 327
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 329
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 330
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 331
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 332
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 333
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 335
+2025-11-10 18:32:18,644 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 336
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 341
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 344
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 348
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 353
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 355
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 356
+2025-11-10 18:32:18,645 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 358
+2025-11-10 18:32:18,646 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 360
+2025-11-10 18:32:18,646 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 362
+2025-11-10 18:32:18,646 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 366
+2025-11-10 18:32:18,646 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 368
+2025-11-10 18:32:18,646 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 369
+2025-11-10 18:32:18,647 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 376
+2025-11-10 18:32:18,647 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 377
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 380
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 382
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 383
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 384
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 386
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 387
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 388
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 390
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 391
+2025-11-10 18:32:18,648 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 392
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 394
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 396
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 397
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 399
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 400
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 402
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 403
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 405
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 406
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 409
+2025-11-10 18:32:18,649 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 410
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 411
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 412
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 413
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 415
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 417
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 421
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 422
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 423
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 424
+2025-11-10 18:32:18,650 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 425
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 431
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 432
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 434
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 439
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 444
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 445
+2025-11-10 18:32:18,651 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 446
+2025-11-10 18:32:18,652 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 447
+2025-11-10 18:32:18,652 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 448
+2025-11-10 18:32:18,652 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 454
+2025-11-10 18:32:18,652 [WARNING] dotenv.main: python-dotenv could not parse statement starting at line 456
+2025-11-10 18:32:18,652 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-10 18:32:18,652 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-10 18:32:18,653 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-10T16:32:18.653345", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-10 18:32:18,653 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-10 18:32:18,653 [INFO] omerGPT.orchestrator: ✓ CoinGecko poller initialized
+2025-11-10 18:32:18,665 [INFO] omerGPT.sentiment.reddit: reddit_posts table ready
+2025-11-10 18:32:18,666 [INFO] omerGPT.sentiment.reddit: RedditFetcher initialized with DB: data/sentiment_data.duckdb
+2025-11-10 18:32:18,666 [INFO] omerGPT.orchestrator: ✓ Reddit ingestion initialized
+2025-11-10 18:32:18,666 [INFO] GPUCorrelationEngine: ✅ GPU detected for cuDF/cuPy correlation
+2025-11-10 18:32:18,668 [INFO] omerGPT.sentiment.index: sentiment_index table ready
+2025-11-10 18:32:18,668 [INFO] omerGPT.sentiment.index: SentimentIndexGenerator initialized: data/sentiment_data.duckdb
+2025-11-10 18:32:18,668 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3 | GPU=True
+2025-11-10 18:32:18,668 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-10 18:32:18,669 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-10 18:32:18,669 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.01
+2025-11-10 18:32:18,669 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-10 18:32:18,669 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-10 18:32:18,669 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-10 18:32:18,669 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 2 channels, max_per_minute=5
+2025-11-10 18:32:18,669 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-10 18:32:18,669 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-10 18:32:18,669 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-10 18:32:20,218 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-10 18:32:20,219 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-10 18:32:20,451 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-10 18:32:20,452 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-10 18:32:20,452 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-10 18:32:20,452 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-10 18:32:20,452 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-10 18:32:20,471 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 10080m
+2025-11-10 18:32:20,472 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-10 18:32:20,472 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-10 18:32:20,473 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-10 18:32:20,473 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-10 18:32:20,473 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-10 18:32:20,473 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 1,
+  "modules": {
+    "anomaly": "2025-11-10T18:32:20.472288"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-10 18:32:20,473 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-10 18:32:20,477 [WARNING] features.feature_pipeline: No symbols found in database.
+2025-11-10 18:32:20,478 [WARNING] omerGPT.signals.engine: No symbols found in database

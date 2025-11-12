@@ -1,0 +1,102 @@
+2025-11-03 00:25:42,261 [INFO] omerGPT.orchestrator: ✅ OmerGPT orchestrator initialized
+2025-11-03 00:25:42,261 [INFO] omerGPT.orchestrator: 🚀 Starting OmerGPT orchestrator...
+2025-11-03 00:25:42,263 [INFO] omerGPT.orchestrator: 🔧 Initializing modules...
+2025-11-03 00:25:42,277 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-03 00:25:42,277 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-03 00:25:42,277 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-03 00:25:42,277 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory_limit: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-03 00:25:42,277 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-03 00:25:42,277 [INFO] omerGPT.orchestrator: ✓ Database initialized: data/market_data.duckdb
+2025-11-03 00:25:42,277 [INFO] omerGPT.ingestion.binance_ws: Initialized BinanceIngestion for 10 symbols: ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'AVAXUSDT', 'MATICUSDT', 'DOTUSDT'] | interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 00:25:42,277 [INFO] omerGPT.orchestrator: ✓ Binance ingestion initialized
+2025-11-03 00:25:42,277 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 symbols | interval=1 | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 00:25:42,277 [INFO] omerGPT.ingestion.kraken_ws: Initialized KrakenIngestion for 2 pairs: ['BTC/USDT', 'ETH/USDT'] | channels=['ohlc', 'trade', 'ticker'] | ohlc_interval=1m | batch_size=20 | rate_limit=50msg/s | test_mode=False
+2025-11-03 00:25:42,277 [INFO] omerGPT.orchestrator: ✓ Kraken ingestion initialized
+2025-11-03 00:25:42,277 [INFO] omerGPT.ingestion.etherscan_poll: {"ts": "2025-11-02T22:25:42.277763", "event": "init", "msg": "Initialized EtherscanPoller for 2 addresses"}
+2025-11-03 00:25:42,277 [INFO] omerGPT.orchestrator: ✓ Etherscan poller initialized
+2025-11-03 00:25:42,277 [INFO] features.feature_pipeline: HMMRegimeDetector initialized | states=3, GPU=False, batch_interval=5s, contamination=0.01
+2025-11-03 00:25:42,277 [INFO] features.feature_pipeline: ✅ FeaturePipeline initialized | GPU=True
+2025-11-03 00:25:42,277 [INFO] omerGPT.orchestrator: ✓ Feature pipeline initialized
+2025-11-03 00:25:42,277 [INFO] omerGPT.anomaly_detection.isolation_forest: AnomalyDetector initialized: gpu=False, contamination=0.02
+2025-11-03 00:25:42,277 [INFO] omerGPT.orchestrator: ✓ Anomaly detector initialized
+2025-11-03 00:25:42,287 [INFO] omerGPT.signals.engine: SignalEngine initialized with thresholds: {'rsi_oversold': 30, 'rsi_overbought': 70, 'volatility_spike': 1.5, 'momentum_threshold': 0.02, 'anomaly_buy': 0.9, 'anomaly_sell': 0.9, 'min_confidence': 0.7, 'atr_spike_threshold': 0.02, 'volume_thresh': 1000}
+2025-11-03 00:25:42,287 [INFO] omerGPT.orchestrator: ✓ Signal engine initialized
+2025-11-03 00:25:42,287 [INFO] omerGPT.alerts.telegram: TelegramBot initialized: 2 channels, max_per_minute=5
+2025-11-03 00:25:42,287 [INFO] omerGPT.orchestrator: ✓ Telegram bot initialized
+2025-11-03 00:25:42,287 [INFO] omerGPT.orchestrator: ✅ All modules initialized successfully
+2025-11-03 00:25:42,287 [INFO] omerGPT.ingestion.binance_ws: Connecting to Binance WS (attempt 1/10)...
+2025-11-03 00:25:43,419 [INFO] omerGPT.ingestion.binance_ws: ✅ Connected to Binance WS for 10 symbols (BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT, XRPUSDT, DOGEUSDT, ADAUSDT, AVAXUSDT, MATICUSDT, DOTUSDT)
+2025-11-03 00:25:43,419 [INFO] omerGPT.ingestion.kraken_ws: Connecting to Kraken WS (attempt 1/5)...
+2025-11-03 00:25:44,620 [INFO] omerGPT.ingestion.kraken_ws: ✅ Connected to Kraken WS for 2 pairs (BTC/USDT, ETH/USDT)
+2025-11-03 00:25:44,620 [INFO] omerGPT.orchestrator: ✅ All 6 processing loops started
+2025-11-03 00:25:44,620 [INFO] omerGPT.orchestrator: 🔄 Ingestion loop started
+2025-11-03 00:25:44,620 [INFO] omerGPT.orchestrator: 📊 Feature loop started
+2025-11-03 00:25:44,620 [INFO] features.feature_pipeline: 🔁 Retraining HMM model...
+2025-11-03 00:25:45,893 [INFO] features.feature_pipeline: ✅ HMM model trained and saved → checkpoints/hmm_regime.pkl
+2025-11-03 00:25:45,893 [ERROR] omerGPT.orchestrator: Feature loop error: object of type 'numpy.float64' has no len()
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 272, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 181, in update_features
+    state, confidence, probs = self.detector.predict(returns, volatility)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 111, in predict
+    confidence = probs[state] if len(probs) > state else 0.0
+                                 ^^^^^^^^^^
+TypeError: object of type 'numpy.float64' has no len()
+2025-11-03 00:25:45,893 [INFO] omerGPT.orchestrator: 🎯 Anomaly loop started
+2025-11-03 00:25:45,893 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features found in last 120m
+2025-11-03 00:25:45,903 [WARNING] omerGPT.anomaly_detection.isolation_forest: No features to process
+2025-11-03 00:25:45,903 [INFO] omerGPT.orchestrator: 📈 Signal loop started
+2025-11-03 00:25:45,903 [INFO] omerGPT.orchestrator: 📨 Alert loop started
+2025-11-03 00:25:45,903 [INFO] omerGPT.alerts.telegram: ✅ Telegram bot started
+2025-11-03 00:25:45,903 [INFO] omerGPT.orchestrator: 💓 Monitor loop started
+2025-11-03 00:25:45,903 [INFO] omerGPT.orchestrator: 💓 System health: {
+  "uptime_seconds": 3,
+  "modules": {
+    "anomaly": "2025-11-03T00:25:45.903648"
+  },
+  "tasks": {
+    "ingestion": true,
+    "features": false,
+    "anomaly": false,
+    "signals": false,
+    "alerts": false,
+    "monitor": false
+  }
+}
+2025-11-03 00:25:45,903 [INFO] omerGPT.alerts.telegram: ✅ Telegram worker started
+2025-11-03 00:25:45,903 [WARNING] omerGPT.signals.engine: No symbols found in database
+2025-11-03 00:25:50,906 [ERROR] omerGPT.orchestrator: Feature loop error: object of type 'numpy.float64' has no len()
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 272, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 181, in update_features
+    state, confidence, probs = self.detector.predict(returns, volatility)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 111, in predict
+    confidence = probs[state] if len(probs) > state else 0.0
+                                 ^^^^^^^^^^
+TypeError: object of type 'numpy.float64' has no len()
+2025-11-03 00:25:55,924 [ERROR] omerGPT.orchestrator: Feature loop error: object of type 'numpy.float64' has no len()
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 272, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 181, in update_features
+    state, confidence, probs = self.detector.predict(returns, volatility)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 111, in predict
+    confidence = probs[state] if len(probs) > state else 0.0
+                                 ^^^^^^^^^^
+TypeError: object of type 'numpy.float64' has no len()
+2025-11-03 00:26:00,916 [ERROR] omerGPT.orchestrator: Feature loop error: object of type 'numpy.float64' has no len()
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\src\omerGPT.py", line 272, in _feature_loop
+    await self.feature_pipeline.update_features()
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 181, in update_features
+    state, confidence, probs = self.detector.predict(returns, volatility)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\src\features\feature_pipeline.py", line 111, in predict
+    confidence = probs[state] if len(probs) > state else 0.0
+                                 ^^^^^^^^^^
+TypeError: object of type 'numpy.float64' has no len()

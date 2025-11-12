@@ -1,0 +1,53 @@
+2025-11-10 08:24:36,046 [INFO] Scanning for syntax errors...
+2025-11-10 08:24:36,047 [ERROR] Fatal error in magic_fix
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\magic_fix.py", line 622, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\LLM\omerGPT\magic_fix.py", line 567, in main
+    issues = engine.scan_issues()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\magic_fix.py", line 430, in scan_issues
+    found, description = detector.detect()
+                         ^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\magic_fix.py", line 211, in detect
+    compile(f.read(), py_file, 'exec')
+            ^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 6239: character maps to <undefined>
+2025-11-10 08:25:59,078 [INFO] Scanning for syntax errors...
+2025-11-10 08:25:59,114 [ERROR] Syntax error in C:\LLM\omerGPT\src\api\health_api.py: unexpected indent (health_api.py, line 356)
+2025-11-10 08:25:59,195 [INFO] Testing imports...
+2025-11-10 08:25:59,839 [INFO] NumExpr defaulting to 16 threads.
+2025-11-10 08:26:00,079 [INFO] [Init] Batch=5s | Retrain=25 | GPU=True | Target p95=120ms
+2025-11-10 08:26:03,943 [INFO] [Init] GPU=True | Batch=5s | Contamination=0.01 | p95 target=100ms
+2025-11-10 08:26:04,245 [ERROR] Import failed: src.features.feature_pipeline - No module named 'features'
+2025-11-10 08:26:04,245 [INFO] Checking for missing implementations...
+2025-11-10 08:26:04,245 [ERROR] Fatal error in magic_fix
+Traceback (most recent call last):
+  File "C:\LLM\omerGPT\magic_fix.py", line 622, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\LLM\omerGPT\magic_fix.py", line 567, in main
+    issues = engine.scan_issues()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\magic_fix.py", line 430, in scan_issues
+    found, description = detector.detect()
+                         ^^^^^^^^^^^^^^^^^
+  File "C:\LLM\omerGPT\magic_fix.py", line 301, in detect
+    content = f.read()
+              ^^^^^^^^
+  File "C:\anaconda\envs\omergpt\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 5898: character maps to <undefined>
+2025-11-10 18:25:07,813 [INFO] Scanning for syntax errors...
+2025-11-10 18:25:07,846 [ERROR] Syntax error in C:\LLM\omerGPT\src\api\health_api.py: unexpected indent (health_api.py, line 356)
+2025-11-10 18:25:07,952 [INFO] Testing imports...
+2025-11-10 18:25:07,952 [INFO] Checking configuration...
+2025-11-10 18:25:14,987 [INFO] Scanning for syntax errors...
+2025-11-10 18:25:15,019 [ERROR] Syntax error in C:\LLM\omerGPT\src\api\health_api.py: unexpected indent (health_api.py, line 356)
+2025-11-10 18:25:15,099 [INFO] Testing imports...
+2025-11-10 18:25:15,099 [INFO] Checking configuration...
