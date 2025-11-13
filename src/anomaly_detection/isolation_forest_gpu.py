@@ -1,38 +1,9 @@
-# =====================================================
-# ✅ RESEARCH COMPLIANCE WRAPPER §2.3–§3.1 (GPU Isolation Forest)
-# =====================================================
-import time
-import yaml
-import statistics
-import logging
-
-# Load config for batch/contamination control
-try:
-    with open("config.yaml", "r") as f:
-        CONFIG = yaml.safe_load(f)
-except Exception:
-    CONFIG = {}
-
-GPU_ENABLED = CONFIG.get("gpu", {}).get("enabled", True)
-BATCH_INTERVAL = CONFIG.get("features", {}).get("batch_interval", 5)
-CONTAMINATION = CONFIG.get("anomaly_detection", {}).get("model_params", {}).get("contamination", 0.01)
-LATENCY_TARGET_MS = 100
-
-logger = logging.getLogger("IForestResearchLayer")
-logger.info(
-    f"[Init] GPU={GPU_ENABLED} | Batch={BATCH_INTERVAL}s | Contamination={CONTAMINATION} | p95 target={LATENCY_TARGET_MS}ms"
-)
-# =====================================================
-
 """
 src/anomaly_detection/isolation_forest_gpu.py
 
 GPU-accelerated anomaly detection module using Isolation Forest.
 
-Loads recent feature data, fits an isolation model (via cuML or scikit-learn),
-computes anomaly scores for each symbol, and writes results to DuckDB.
-
-Designed for streaming mode: incremental updates, low latency, and adaptive retraining.
+FIXED: Using int64 milliseconds for ts_ms queries to match BIGINT database schema.
 """
 
 import asyncio
@@ -41,6 +12,8 @@ import logging
 import os
 import pickle
 import time
+import statistics
+import yaml
 from datetime import datetime, timedelta
 from typing import List, Optional, Dict, Tuple
 
@@ -56,6 +29,18 @@ try:
     GPU_AVAILABLE = True
 except ImportError:
     GPU_AVAILABLE = False
+
+# Load config for batch/contamination control
+try:
+    with open("configs/config.yaml", "r") as f:
+        CONFIG = yaml.safe_load(f)
+except Exception:
+    CONFIG = {}
+
+GPU_ENABLED = CONFIG.get("gpu", {}).get("enabled", True)
+BATCH_INTERVAL = CONFIG.get("features", {}).get("batch_interval", 5)
+CONTAMINATION = CONFIG.get("anomaly_detection", {}).get("model_params", {}).get("contamination", 0.01)
+LATENCY_TARGET_MS = 100
 
 logger = logging.getLogger("omerGPT.anomaly_detection.isolation_forest")
 
@@ -128,7 +113,7 @@ class AnomalyDetector:
         logger.info(
             f"AnomalyDetector initialized: "
             f"gpu={self.gpu_enabled}, "
-            f"contamination={self.model_params.get('contamination', 0.02)}"
+            f"contamination={self.model_params.get('contamination', 0.01)}"
         )
 
     def _get_model_class(self):
@@ -190,19 +175,22 @@ class AnomalyDetector:
         except Exception as e:
             logger.error(f"❌ Checkpoint save failed: {e}")
 
-    async def load_recent_features(self, window_minutes: int = 120) -> pd.DataFrame:
+    def load_recent_features(self, lookback_minutes: int = 10080) -> pd.DataFrame:
         """
         Load recent feature data from DuckDB.
         
+        FIXED: Using int64 milliseconds for BIGINT ts_ms column.
+        
         Args:
-            window_minutes: Historical window in minutes
+            lookback_minutes: Historical window in minutes
             
         Returns:
             DataFrame with features and metadata
         """
         try:
-            end_time = datetime.now()
-            start_time = end_time - timedelta(minutes=window_minutes)
+            # 🔥 CRITICAL FIX: Convert to BIGINT milliseconds
+            now_ms = int(time.time() * 1000)
+            cutoff_ms = now_ms - (lookback_minutes * 60 * 1000)
             
             # Query features from DB
             query = """
@@ -218,12 +206,12 @@ class AnomalyDetector:
             
             result = self.db.conn.execute(
                 query,
-                (start_time, end_time)
+                (cutoff_ms, now_ms)  # ← FIXED: Using BIGINT
             )
             df = result.df()
             
             if len(df) == 0:
-                logger.warning(f"No features found in last {window_minutes}m")
+                logger.warning(f"No features found in last {lookback_minutes}m")
                 return pd.DataFrame()
             
             logger.info(f"Loaded {len(df)} feature rows")
@@ -395,9 +383,8 @@ class AnomalyDetector:
         Main pipeline: load → fit → score → store results.
         """
         try:
-            # Load features
-            features_df = await self.load_recent_features(window_minutes=10080)
-
+            # Load features (now using synchronous method with correct BIGINT handling)
+            features_df = self.load_recent_features(lookback_minutes=10080)
             
             if features_df.empty:
                 logger.warning("No features to process")
@@ -437,7 +424,7 @@ class AnomalyDetector:
         while self.running:
             try:
                 await self.detect_anomalies()
-                await asyncio.sleep(5)  # Run every 60 seconds
+                await asyncio.sleep(60)  # Run every 60 seconds
             
             except asyncio.CancelledError:
                 logger.info("Detector cancelled")
@@ -445,7 +432,7 @@ class AnomalyDetector:
             
             except Exception as e:
                 logger.error(f"Detector error: {e}", exc_info=True)
-                await asyncio.sleep(5)
+                await asyncio.sleep(60)
 
     async def stop(self):
         """Stop detector."""
@@ -465,7 +452,7 @@ async def run_detector(mode: str = "demo"):
 
     Modes:
         - "demo"        → runs for 5 minutes, prints periodic stats
-        - "continuous"  → runs indefinitely, monitors latency (research §2.3–§3.1)
+        - "continuous"  → runs indefinitely, monitors latency
     """
     import sys
     sys.path.insert(0, "src")
@@ -477,7 +464,6 @@ async def run_detector(mode: str = "demo"):
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     )
 
-    logger = logging.getLogger("IsolationForestRunner")
     logger.info(f"🚀 Starting Isolation Forest ({mode} mode)")
 
     db = DatabaseManager("data/market_data.duckdb")
@@ -549,9 +535,6 @@ async def run_detector(mode: str = "demo"):
         raise ValueError("Invalid mode: choose 'demo' or 'continuous'.")
 
 
-# =====================================================
-# ✅ Entry point
-# =====================================================
 if __name__ == "__main__":
     import argparse
 
@@ -560,6 +543,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     asyncio.run(run_detector(args.mode))
-
-
-

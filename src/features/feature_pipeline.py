@@ -1,3 +1,11 @@
+"""
+src/features/feature_pipeline.py
+
+Complete Feature Pipeline with HMM Regime Detection, Momentum Indicators, and GARCH Volatility.
+
+FIXED: Using int64 milliseconds for ts_ms and computed_at to match BIGINT database schema.
+"""
+
 import logging
 from typing import Tuple, List
 import numpy as np
@@ -23,8 +31,7 @@ from sklearn.preprocessing import StandardScaler
 from features.correlation import GPUCorrelationEngine
 from sentiment_analysis.sentiment_index import SentimentIndexGenerator
 
-
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("features.feature_pipeline")
 
 # === Load configuration and runtime params ===
 try:
@@ -321,10 +328,12 @@ class FeaturePipeline:
             ob_imbalance = 0.0
             corr_btc_eth = 0.0
 
-            # FINAL FIX: Remove timezone to avoid conversion error
+            # 🔥 CRITICAL FIX: Use int64 milliseconds instead of datetime
+            current_time_ms = int(time.time() * 1000)
+
             feature_row = {
                 "symbol": symbol,
-                "ts_ms": pd.Timestamp.utcnow().tz_localize(None),  # ← FINAL FIX!
+                "ts_ms": current_time_ms,  # ← FIXED: int64 milliseconds
                 "return_1m": float(returns[-1]),
                 "volatility_5m": float(vol_5m.iloc[-1]) if not vol_5m.empty and len(vol_5m) > 5 else 0.0,
                 "volatility_15m": float(vol_15m.iloc[-1]) if not vol_15m.empty and len(vol_15m) > 15 else 0.0,
@@ -342,7 +351,7 @@ class FeaturePipeline:
                 "spread": float(spread),
                 "ob_imbalance": float(ob_imbalance),
                 "corr_btc_eth": float(corr_btc_eth),
-                "computed_at": pd.Timestamp.utcnow().tz_localize(None)  # ← FINAL FIX!
+                "computed_at": current_time_ms  # ← FIXED: int64 milliseconds
             }
             all_features.append(feature_row)
 

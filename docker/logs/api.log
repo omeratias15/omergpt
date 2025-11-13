@@ -78,3 +78,12 @@
 2025-11-03 18:45:44,993 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
 2025-11-03 18:45:44,993 - __main__ - INFO - ============================================================
 2025-11-03 21:00:12,949 - __main__ - INFO - omerGPT API Server Shutting Down
+2025-11-13 16:20:25,605 - __main__ - INFO - Starting omerGPT API Server on http://0.0.0.0:8000
+2025-11-13 16:20:25,605 - __main__ - INFO - API Documentation: http://localhost:8000/docs
+2025-11-13 16:20:25,658 - __main__ - INFO - ============================================================
+2025-11-13 16:20:25,660 - __main__ - INFO - omerGPT API Server Starting
+2025-11-13 16:20:25,660 - __main__ - INFO - ============================================================
+2025-11-13 16:20:25,660 - __main__ - INFO - Sample API Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvbWVyZ3B0X3VzZXIiLCJpYXQiOjE3NjMwNTA4MjUsImV4cCI6MTc2MzA1NDQyNX0.dPi6Sh34UZ87W6_H7yvxCdnk-1gG_788MrOnFPdvqjo
+2025-11-13 16:20:25,661 - __main__ - INFO - Include this token in Authorization header: Bearer <token>
+2025-11-13 16:20:25,661 - __main__ - INFO - ============================================================
+2025-11-13 16:25:40,297 - __main__ - INFO - omerGPT API Server Shutting Down

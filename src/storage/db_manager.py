@@ -74,7 +74,7 @@ class DatabaseManager:
         """Optimize DuckDB settings."""
         try:
             self.conn.execute("PRAGMA wal_autocheckpoint=1000")
-            self.conn.execute("PRAGMA memory_limit='4G'")
+            self.conn.execute("PRAGMA memory_limit='4GB'")
             self.conn.execute("PRAGMA threads=4")
             logger.info("✓ Database optimizations applied")
         except Exception as e:
@@ -126,7 +126,7 @@ class DatabaseManager:
                 )
             """)
 
-            # Features
+            # Features - FIXED: ts_ms and computed_at are now BIGINT
             self.conn.execute("""
                 CREATE TABLE IF NOT EXISTS features (
                     symbol TEXT NOT NULL,
@@ -148,7 +148,7 @@ class DatabaseManager:
                     spread DOUBLE,
                     ob_imbalance DOUBLE,
                     corr_btc_eth DOUBLE,
-                    computed_at TIMESTAMP,
+                    computed_at BIGINT,
                     PRIMARY KEY (symbol, ts_ms)
                 )
             """)
@@ -298,7 +298,6 @@ class DatabaseManager:
         Returns:
             Number of rows inserted
         """
-        
         if df.empty:
             return 0
         
@@ -361,7 +360,8 @@ class DatabaseManager:
             result = self.conn.execute(f"PRAGMA table_info({table})").fetchall()
             pk_cols = [row[1] for row in result if row[5]]  # pk field is at index 5
             return pk_cols
-        except:
+        except Exception as e:
+            logger.error(f"Failed to get primary keys: {e}")
             return []
 
     # ==================== HEALTH & STATUS ====================
@@ -390,7 +390,8 @@ class DatabaseManager:
             try:
                 result = self.conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()
                 counts[table] = result[0] if result else 0
-            except:
+            except Exception as e:
+                logger.warning(f"Failed to count {table}: {e}")
                 counts[table] = 0
 
         return counts
@@ -420,7 +421,8 @@ class DatabaseManager:
             ts_col = "ts_ms" if "ts_ms" in columns else "ts"
             result = self.conn.execute(f"SELECT MAX({ts_col}) FROM {table}").fetchone()
             return result[0] if result and result[0] else None
-        except Exception:
+        except Exception as e:
+            logger.error(f"Timestamp query error for {table}: {e}")
             return None
 
     async def get_health_report(self) -> Dict[str, Any]:

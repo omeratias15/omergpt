@@ -1096,3 +1096,81 @@
 2025-11-03 21:00:09,680 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
 2025-11-03 21:00:09,680 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
 2025-11-03 21:00:09,768 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:30,403 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:30,418 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:30,456 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:30,473 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:30,473 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:30,609 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:33,741 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:33,747 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:33,821 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:33,822 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:33,822 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:33,907 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:36,299 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:36,304 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:36,323 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:36,324 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:36,324 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:36,406 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:38,729 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:38,734 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:38,752 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:38,752 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:38,753 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:38,831 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:41,521 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:41,526 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:41,546 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:41,546 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:41,547 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:41,626 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:45,206 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:45,212 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:45,237 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:45,237 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:45,238 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:45,315 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:50,604 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:50,608 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:50,627 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:50,628 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:50,628 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:50,702 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:20:59,179 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:20:59,184 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:20:59,203 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:20:59,203 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:20:59,203 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:20:59,280 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:21:14,249 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:21:14,255 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:21:14,277 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:21:14,278 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:21:14,278 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:21:14,359 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:21:42,589 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:21:42,596 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:21:42,620 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:21:42,621 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:21:42,621 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:21:42,722 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:22:36,810 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:22:36,817 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:22:36,844 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:22:36,845 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:22:36,845 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:22:36,949 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:23:39,690 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:23:39,697 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:23:39,727 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:23:39,728 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:23:39,728 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:23:39,853 [INFO] features.volatility: Volatility engine initialized on cuda
+2025-11-13 16:24:42,372 [INFO] omerGPT.storage.db_manager: ✓ Connected to DuckDB: data/market_data.duckdb
+2025-11-13 16:24:42,377 [INFO] omerGPT.storage.db_manager: ✓ All tables and indexes initialized
+2025-11-13 16:24:42,402 [INFO] omerGPT.storage.db_manager: ✓ Meta table initialized
+2025-11-13 16:24:42,403 [WARNING] omerGPT.storage.db_manager: ⚠️ Optimization warning: Parser Error: Unknown unit for memory: '' (expected: KB, MB, GB, TB for 1000^i units or KiB, MiB, GiB, TiB for 1024^i units)
+2025-11-13 16:24:42,403 [INFO] omerGPT.storage.db_manager: ✓ DatabaseManager initialized: data/market_data.duckdb
+2025-11-13 16:24:42,521 [INFO] features.volatility: Volatility engine initialized on cuda

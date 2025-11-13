@@ -1,0 +1,12 @@
+# Add to .gitignore
+*.db
+*.duckdb
+__pycache__/
+*.pyc
+*.pyo
+*.log
+.env
+checkpoints/
+logs/
+data/
+*.pdf
