@@ -130,7 +130,7 @@ class DatabaseManager:
             self.conn.execute("""
                 CREATE TABLE IF NOT EXISTS features (
                     symbol TEXT NOT NULL,
-                    ts_ms TIMESTAMP NOT NULL,
+                    ts_ms BIGINT NOT NULL,
                     return_1m DOUBLE,
                     volatility_5m DOUBLE,
                     volatility_15m DOUBLE,
